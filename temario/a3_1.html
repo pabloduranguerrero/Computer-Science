@@ -1,21 +1,209 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A3.1 Fundamentos de bases de datos | Temario NM</title><meta name="description" content="A3.1 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.1</div>
-<p class="kicker">Temario NM · A3.1</p><h2>A3.1 Fundamentos de bases de datos</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Por qué las bases de datos son esenciales para gestionar información de forma consistente?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Las bases de datos permiten organizar información con consistencia y acceso eficiente.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Una base de datos almacena datos estructurados; un SGBD administra acceso, consultas y control de integridad.</p><p>En el modelo relacional se trabaja con tablas, registros y campos para representar entidades y relaciones.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Base de datos</li><li>SGBD</li><li>Tabla, registro y campo</li><li>Integridad</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>En biblioteca escolar: tablas de libros, usuarios y préstamos para controlar disponibilidad y devoluciones.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Gestión académica, inventarios, historiales y sistemas de ventas.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Creer que una BD es una sola tabla; usar campos ambiguos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>A3.2 (diseño), A3.3 (SQL), A2.4 (seguridad de datos).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>BD organiza datos de forma robusta.</li><li>SGBD facilita gestión y consultas.</li><li>Tabla/fila/columna son elementos base.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="a2_4.html" style="color:#102a43;border-color:#9fb5d9;">← A2.4</a><a class="btn btn-primary" href="a3_2.html">A3.2 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A3.1 Fundamentos de bases de datos | Temario NM</title>
+  <meta name="description" content="A3.1 de informática IB nivel medio: fundamentos de bases de datos, SGBD, tablas, registros y campos con explicación completa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.1
+      </div>
+
+      <p class="kicker">Temario NM · A3.1</p>
+      <h2>A3.1 Fundamentos de bases de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo permiten las bases de datos almacenar y organizar información de forma estructurada para que pueda consultarse, actualizarse y gestionarse con eficiencia?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>En informática, muchas aplicaciones necesitan guardar información de manera ordenada. Un colegio debe registrar alumnado, grupos y calificaciones; una tienda necesita almacenar productos, precios y pedidos; una biblioteca debe controlar libros, usuarios y préstamos. Si esos datos se guardaran en documentos aislados o en archivos desorganizados, sería difícil buscarlos, actualizarlos y mantenerlos sin errores.</p>
+        <p>Las bases de datos surgen precisamente para resolver ese problema. Una base de datos permite almacenar información de forma estructurada, de manera que pueda utilizarse con rapidez y consistencia. En este subtema estudiaremos qué es una base de datos, qué papel tiene un sistema gestor de bases de datos y cómo se organizan los datos en tablas, registros y campos.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+        <p>Una <strong>base de datos</strong> es una colección organizada de datos que se almacena de forma estructurada para facilitar su acceso, gestión y actualización. No se trata simplemente de “guardar información”, sino de hacerlo de una manera que permita trabajar con ella de forma eficiente y fiable.</p>
+        <p>Por ejemplo, una plataforma educativa podría necesitar guardar el nombre del alumno, su identificador, el curso en el que está matriculado, sus asignaturas y sus calificaciones. Si esos datos están en una base de datos, el sistema puede buscarlos rápidamente, modificarlos cuando sea necesario y generar informes sin tener que rehacer toda la información desde cero.</p>
+        <p>Para trabajar con una base de datos se utiliza normalmente un <strong>sistema gestor de bases de datos</strong>, también llamado <strong>SGBD</strong> o <strong>DBMS</strong> (Database Management System). Este software actúa como intermediario entre los usuarios o las aplicaciones y los datos almacenados. Su función es permitir crear bases de datos, consultar información, añadir nuevos registros, modificar datos existentes, borrar datos cuando sea necesario y controlar aspectos como la integridad o los permisos de acceso.</p>
+        <p>Entre los sistemas gestores de bases de datos más conocidos se encuentran MySQL, PostgreSQL, Oracle, Microsoft SQL Server o SQLite. Aunque pueden diferenciarse en prestaciones y complejidad, todos comparten la idea de organizar los datos de forma estructurada y permitir operar con ellos mediante herramientas específicas.</p>
+        <p>En las bases de datos relacionales, la información suele organizarse en <strong>tablas</strong>. Una tabla es una estructura formada por filas y columnas. Cada tabla representa un tipo de entidad o conjunto de datos relacionados. Por ejemplo, una tabla puede contener estudiantes, otra profesores y otra asignaturas.</p>
+        <p>Dentro de una tabla, cada fila recibe el nombre de <strong>registro</strong>. Un registro representa un elemento concreto. En una tabla de estudiantes, cada registro correspondería a un estudiante específico.</p>
+        <p>Cada columna de la tabla se llama <strong>campo</strong>. Un campo representa una propiedad del dato almacenado. Por ejemplo, en una tabla de estudiantes podrían existir campos como ID_estudiante, Nombre, Curso o Edad. Cada campo almacena un tipo concreto de información y suele tener asociado un tipo de dato, como texto, número, fecha o booleano.</p>
+        <p>Esta organización en tablas, registros y campos hace que la información sea mucho más manejable. Permite buscar datos específicos, evitar confusiones y preparar el terreno para relaciones más complejas entre distintas tablas, algo que se estudiará en el diseño de bases de datos.</p>
+        <p>Las bases de datos son especialmente importantes porque ayudan a reducir problemas comunes como la duplicación innecesaria de información, la dificultad para actualizar datos y la falta de consistencia. Si los datos están bien organizados, varias personas o sistemas pueden trabajar con la misma información de una manera mucho más segura y controlada.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Base de datos:</strong> conjunto organizado de datos almacenados de forma estructurada.</li>
+          <li><strong>SGBD / DBMS:</strong> software que permite crear, gestionar y consultar bases de datos.</li>
+          <li><strong>Tabla:</strong> estructura que organiza los datos en filas y columnas.</li>
+          <li><strong>Registro:</strong> fila de una tabla; representa un elemento concreto.</li>
+          <li><strong>Campo:</strong> columna de una tabla; representa una propiedad específica del dato.</li>
+          <li><strong>Tipo de dato:</strong> formato de la información que puede almacenarse en un campo, como texto, número o fecha.</li>
+          <li><strong>Integridad de datos:</strong> garantía de que la información almacenada es correcta, coherente y útil.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Imaginemos una base de datos sencilla para una biblioteca escolar. El sistema necesita guardar información sobre los libros disponibles.</p>
+        <p><strong>Tabla: Libros</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_libro</th>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Disponible</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Don Quijote</td>
+              <td>Miguel de Cervantes</td>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Hamlet</td>
+              <td>William Shakespeare</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>En este ejemplo:</p>
+        <ul>
+          <li>La <strong>tabla</strong> es <em>Libros</em>.</li>
+          <li>Los <strong>campos</strong> son ID_libro, Título, Autor y Disponible.</li>
+          <li>Cada <strong>registro</strong> es una fila que representa un libro concreto.</li>
+        </ul>
+        <p>Gracias a esta estructura, la biblioteca puede saber qué libros tiene, quién podría pedirlos prestados y cuáles están disponibles en cada momento.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <p>Las bases de datos están presentes en casi todos los sistemas informáticos actuales. Algunos ejemplos son:</p>
+        <ul>
+          <li><strong>Gestión académica:</strong> almacenamiento de alumnado, grupos, horarios, tareas y calificaciones.</li>
+          <li><strong>Comercio electrónico:</strong> productos, clientes, pedidos, stock y pagos.</li>
+          <li><strong>Hospitales y clínicas:</strong> historiales médicos, citas, tratamientos y resultados de pruebas.</li>
+          <li><strong>Redes sociales:</strong> usuarios, publicaciones, mensajes, seguidores y reacciones.</li>
+          <li><strong>Sistemas bancarios:</strong> cuentas, movimientos, transferencias y datos de clientes.</li>
+        </ul>
+        <p>En todos estos casos, las bases de datos permiten que la información se gestione de forma rápida, estructurada y segura.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir base de datos con tabla:</strong> una base de datos puede contener varias tablas, no solo una.</li>
+          <li><strong>Confundir registro con campo:</strong> el registro es la fila completa y el campo es cada columna.</li>
+          <li><strong>Pensar que una base de datos solo almacena texto:</strong> en realidad puede almacenar números, fechas, valores lógicos y otros tipos de datos.</li>
+          <li><strong>Creer que el SGBD y la base de datos son lo mismo:</strong> la base de datos es el conjunto de datos; el SGBD es el software que la administra.</li>
+          <li><strong>No ver la importancia de la estructura:</strong> guardar datos sin orden puede hacer que la información sea difícil de buscar o actualizar.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <p>Este subtema se relaciona directamente con:</p>
+        <ul>
+          <li><strong>A3.2 Diseño de bases de datos:</strong> una vez comprendidos tablas, registros y campos, se estudia cómo relacionar tablas y diseñar estructuras eficientes.</li>
+          <li><strong>A3.3 Programación de bases de datos:</strong> después de entender qué es una base de datos, se aprende a consultarla y modificarla usando SQL.</li>
+          <li><strong>A2.4 Seguridad de la red:</strong> muchas bases de datos están conectadas a redes y deben protegerse frente a accesos no autorizados.</li>
+          <li><strong>B1 Pensamiento computacional:</strong> organizar los datos de forma lógica requiere descomposición, abstracción y análisis de necesidades.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Una base de datos es un conjunto organizado de datos almacenados de forma estructurada.</li>
+          <li>Un SGBD es el software que permite crear, gestionar, consultar y actualizar la base de datos.</li>
+          <li>En las bases de datos relacionales, la información se organiza en tablas.</li>
+          <li>Cada fila de una tabla es un registro y cada columna es un campo.</li>
+          <li>Una buena organización de los datos mejora la eficiencia, la consistencia y el mantenimiento de la información.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es una base de datos y explica por qué es útil en un sistema informático real.</li>
+          <li>Explica la diferencia entre una base de datos y un sistema gestor de bases de datos.</li>
+          <li>Describe qué son una tabla, un registro y un campo usando un ejemplo concreto.</li>
+          <li>Analiza por qué una biblioteca escolar o una plataforma educativa necesita una base de datos.</li>
+          <li>Explica un error frecuente al estudiar este tema y cómo puede evitarse.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es una base de datos?</li>
+          <li>¿Qué función cumple un SGBD?</li>
+          <li>En una tabla, ¿qué diferencia hay entre un registro y un campo?</li>
+          <li>¿Por qué es útil almacenar datos de forma estructurada?</li>
+          <li>Da un ejemplo de un sistema real que necesite una base de datos.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es una colección organizada de datos almacenados de forma estructurada para poder consultarlos, gestionarlos y actualizarlos con facilidad.</li>
+          <li>Permite crear, administrar, consultar, insertar, modificar y eliminar datos dentro de una base de datos.</li>
+          <li>El registro es una fila completa que representa un elemento concreto; el campo es una columna que representa una propiedad de ese elemento.</li>
+          <li>Porque facilita la búsqueda, la actualización, el análisis y la consistencia de la información.</li>
+          <li>Por ejemplo, una tienda online, un hospital, una biblioteca o una plataforma educativa.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="a2_4.html" style="color:#102a43;border-color:#9fb5d9;">← A2.4</a>
+        <a class="btn btn-primary" href="a3_2.html">A3.2 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
