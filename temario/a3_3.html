@@ -1,21 +1,297 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A3.3 Programación de bases de datos | Temario NM</title><meta name="description" content="A3.3 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.3</div>
-<p class="kicker">Temario NM · A3.3</p><h2>A3.3 Programación de bases de datos</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo usar SQL para consultar y modificar datos con precisión?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>SQL es la herramienta base para interactuar con una BD relacional.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>SELECT consulta datos; INSERT añade registros; UPDATE modifica valores; DELETE elimina filas. Usar WHERE correctamente es clave para seguridad y precisión.</p><p>Las consultas permiten filtrar, ordenar y combinar información para análisis y toma de decisiones.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>SELECT</li><li>INSERT</li><li>UPDATE</li><li>DELETE</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>SELECT nombre, nota FROM Estudiantes WHERE nota >= 6 ORDER BY nota DESC;</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Reportes académicos, paneles de control, análisis de rendimiento.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>UPDATE/DELETE sin WHERE; sintaxis ambigua; no validar resultados.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>A3.1/A3.2 (estructura), B2 (integración con programas), A2.4 (acceso seguro).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>SQL convierte datos en información útil.</li><li>Las operaciones básicas deben usarse con precisión.</li><li>Filtrar bien evita errores graves.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="a3_2.html" style="color:#102a43;border-color:#9fb5d9;">← A3.2</a><a class="btn btn-primary" href="a4_1.html">A4.1 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A3.3 Programación de bases de datos | Temario NM</title>
+  <meta name="description" content="A3.3 de informática IB nivel medio: SQL, consultas básicas, SELECT, INSERT, UPDATE, DELETE e INNER JOIN con explicación completa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.3
+      </div>
+
+      <p class="kicker">Temario NM · A3.3</p>
+      <h2>A3.3 Programación de bases de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se pueden consultar, añadir, modificar, eliminar y relacionar datos dentro de una base de datos utilizando SQL?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>Una base de datos bien diseñada no es útil por sí sola si no existe una forma de trabajar con la información que contiene. En la práctica, las aplicaciones informáticas necesitan acceder a los datos constantemente: consultar listas de usuarios, añadir nuevos registros, modificar información o eliminar datos que ya no son necesarios.</p>
+        <p>Para realizar estas operaciones se utiliza un lenguaje específico llamado <strong>SQL</strong>. SQL permite comunicarse con un sistema gestor de bases de datos para consultar y manipular la información almacenada. En este apartado estudiaremos los comandos básicos de SQL que permiten trabajar con bases de datos relacionales de forma eficaz.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+        <p><strong>SQL</strong> significa <em>Structured Query Language</em>. Es el lenguaje estándar utilizado para gestionar bases de datos relacionales. Gracias a SQL, los usuarios y las aplicaciones pueden interactuar con los datos sin necesidad de manipular directamente los archivos donde se almacenan.</p>
+        <p>Entre las operaciones más comunes que se realizan con SQL se encuentran consultar información, insertar nuevos registros, actualizar datos existentes, eliminar registros y combinar información de varias tablas relacionadas.</p>
+
+        <p>El comando <strong>SELECT</strong> se utiliza para consultar datos de una tabla. Permite obtener una o varias columnas, o incluso todos los datos almacenados. Por ejemplo:</p>
+        <pre><code>SELECT Nombre
+FROM Estudiantes;</code></pre>
+        <p>Esta consulta devuelve la columna Nombre de la tabla Estudiantes.</p>
+
+        <p>Si queremos obtener todas las columnas de una tabla, usamos el símbolo <code>*</code>:</p>
+        <pre><code>SELECT *
+FROM Estudiantes;</code></pre>
+
+        <p>El comando <strong>INSERT</strong> se utiliza para añadir nuevos registros a una tabla:</p>
+        <pre><code>INSERT INTO Estudiantes (ID_estudiante, Nombre, Curso)
+VALUES (3, 'Laura', 'DP1');</code></pre>
+        <p>Con esta instrucción, la tabla añade un nuevo estudiante.</p>
+
+        <p>El comando <strong>UPDATE</strong> se utiliza para modificar registros existentes. Es muy importante usarlo junto con una condición para evitar cambiar todos los datos de la tabla:</p>
+        <pre><code>UPDATE Estudiantes
+SET Curso = 'DP2'
+WHERE Nombre = 'Laura';</code></pre>
+
+        <p>El comando <strong>DELETE</strong> se utiliza para eliminar registros:</p>
+        <pre><code>DELETE FROM Estudiantes
+WHERE Nombre = 'Laura';</code></pre>
+        <p>De nuevo, la condición es esencial para indicar qué registros deben borrarse.</p>
+
+        <p>Además de trabajar con una sola tabla, SQL permite combinar datos de varias tablas. Para ello se utiliza <strong>INNER JOIN</strong>. Esta operación relaciona dos tablas usando un campo común y devuelve únicamente los registros que coinciden en ambas.</p>
+
+        <p>Por ejemplo, supongamos estas tablas:</p>
+        <p><strong>Tabla Estudiantes</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_estudiante</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Cursos</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_estudiante</th>
+              <th>Curso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Matemáticas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Consulta con INNER JOIN:</p>
+        <pre><code>SELECT Estudiantes.Nombre, Cursos.Curso
+FROM Estudiantes
+INNER JOIN Cursos
+ON Estudiantes.ID_estudiante = Cursos.ID_estudiante;</code></pre>
+
+        <p>El resultado muestra el nombre de cada estudiante junto con su curso correspondiente. Esto demuestra cómo SQL puede combinar información distribuida en distintas tablas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>SQL:</strong> lenguaje estándar para gestionar bases de datos relacionales.</li>
+          <li><strong>Consulta:</strong> instrucción que permite obtener o manipular datos.</li>
+          <li><strong>SELECT:</strong> consulta para recuperar datos.</li>
+          <li><strong>INSERT:</strong> instrucción para añadir nuevos registros.</li>
+          <li><strong>UPDATE:</strong> instrucción para modificar datos existentes.</li>
+          <li><strong>DELETE:</strong> instrucción para eliminar registros.</li>
+          <li><strong>INNER JOIN:</strong> operación que combina datos de dos tablas relacionadas.</li>
+          <li><strong>WHERE:</strong> cláusula que especifica una condición.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Imaginemos una base de datos de una tienda.</p>
+
+        <p><strong>Tabla: Clientes</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_cliente</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Marta</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Luis</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla: Pedidos</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_pedido</th>
+              <th>ID_cliente</th>
+              <th>Producto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>1</td>
+              <td>Libro</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>2</td>
+              <td>Calculadora</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Consulta para mostrar el nombre del cliente y el producto pedido:</p>
+        <pre><code>SELECT Clientes.Nombre, Pedidos.Producto
+FROM Clientes
+INNER JOIN Pedidos
+ON Clientes.ID_cliente = Pedidos.ID_cliente;</code></pre>
+
+        <p>Esta consulta permite ver claramente qué producto ha comprado cada cliente.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Plataformas educativas:</strong> consultan alumnado, tareas y calificaciones.</li>
+          <li><strong>Tiendas online:</strong> añaden pedidos, actualizan stock y consultan productos.</li>
+          <li><strong>Hospitales:</strong> consultan historiales y actualizan información de pacientes.</li>
+          <li><strong>Bancos:</strong> registran operaciones y consultan movimientos de cuentas.</li>
+          <li><strong>Empresas:</strong> generan informes a partir de bases de datos relacionales.</li>
+        </ul>
+        <p>En todos estos casos, SQL permite acceder a la información de forma rápida y estructurada.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Olvidar la cláusula WHERE en UPDATE o DELETE:</strong> esto puede modificar o borrar todos los registros.</li>
+          <li><strong>Confundir SELECT con INSERT:</strong> SELECT consulta datos; INSERT añade registros.</li>
+          <li><strong>No identificar correctamente el campo común en INNER JOIN:</strong> esto impide relacionar bien las tablas.</li>
+          <li><strong>Escribir mal los nombres de tablas o campos:</strong> la consulta deja de funcionar correctamente.</li>
+          <li><strong>Pensar que SQL solo sirve para consultar:</strong> también sirve para insertar, actualizar, borrar y combinar datos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>A3.1 Fundamentos de bases de datos:</strong> aporta los conceptos básicos de tablas, registros y campos.</li>
+          <li><strong>A3.2 Diseño de bases de datos:</strong> define la estructura sobre la que después se aplican las consultas SQL.</li>
+          <li><strong>B2.4 Algoritmos de programación:</strong> muchas consultas pueden entenderse como instrucciones paso a paso para obtener un resultado.</li>
+          <li><strong>B1.1 Pensamiento computacional:</strong> usar SQL implica descomponer un problema y traducirlo a instrucciones precisas.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>SQL es el lenguaje utilizado para interactuar con bases de datos relacionales.</li>
+          <li>SELECT permite consultar información.</li>
+          <li>INSERT permite añadir nuevos registros.</li>
+          <li>UPDATE permite modificar datos existentes.</li>
+          <li>DELETE permite eliminar registros.</li>
+          <li>INNER JOIN permite combinar datos de varias tablas relacionadas.</li>
+          <li>Las cláusulas y condiciones correctas son esenciales para trabajar con seguridad y precisión.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es SQL y explica por qué es importante en una base de datos relacional.</li>
+          <li>Explica la diferencia entre SELECT, INSERT, UPDATE y DELETE.</li>
+          <li>Describe qué hace INNER JOIN y por qué es útil.</li>
+          <li>Analiza el riesgo de ejecutar una instrucción UPDATE o DELETE sin cláusula WHERE.</li>
+          <li>Escribe un ejemplo de consulta SQL que combine datos de dos tablas relacionadas.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué significa SQL?</li>
+          <li>¿Qué comando se usa para consultar datos?</li>
+          <li>¿Qué comando se usa para añadir un nuevo registro?</li>
+          <li>¿Para qué sirve UPDATE?</li>
+          <li>¿Qué hace INNER JOIN?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Structured Query Language.</li>
+          <li>SELECT.</li>
+          <li>INSERT.</li>
+          <li>Sirve para modificar datos existentes.</li>
+          <li>Combina información de dos tablas relacionadas mediante un campo común.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="a3_2.html" style="color:#102a43;border-color:#9fb5d9;">← A3.2</a>
+        <a class="btn btn-primary" href="a4_1.html">A4.1 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
