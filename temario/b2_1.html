@@ -1,21 +1,326 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>B2.1 Fundamentos de programación | Temario NM</title><meta name="description" content="B2.1 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.1</div>
-<p class="kicker">Temario NM · B2.1</p><h2>B2.1 Fundamentos de programación</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Qué elementos básicos permiten construir programas correctos?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Programar consiste en transformar lógica en instrucciones ejecutables.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Un programa procesa entradas para producir salidas. Variables almacenan valores y los tipos de datos determinan operaciones válidas.</p><p>La validación de entrada y la claridad del código son esenciales para evitar errores y facilitar mantenimiento.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Programa</li><li>Variables</li><li>Tipos de datos</li><li>Entrada y salida</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Programa que pide dos notas, calcula promedio y muestra estado del estudiante.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Automatización, calculadoras, formularios, apps educativas.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Variables sin inicializar, tipos incompatibles, falta de validación.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>B2.3 (control), B2.2 (estructuras), A1.2 (lógica).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Un programa bien hecho es correcto y legible.</li><li>Variables/tipos son base técnica.</li><li>Entrada/salida define interacción con usuario.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="b1_1.html" style="color:#102a43;border-color:#9fb5d9;">← B1.1</a><a class="btn btn-primary" href="b2_2.html">B2.2 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2.1 Fundamentos de programación | Temario NM</title>
+  <meta name="description" content="B2.1 de informática IB nivel medio: fundamentos de programación, programas, instrucciones, variables, tipos de datos, entrada y salida con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.1
+      </div>
+
+      <p class="kicker">Temario NM · B2.1</p>
+      <h2>B2.1 Fundamentos de programación</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se construyen los programas informáticos a partir de instrucciones, datos y estructuras básicas que permiten resolver problemas de forma lógica y automática?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>La programación es una de las bases de la informática. Gracias a ella, los ordenadores, los móviles, las páginas web y las aplicaciones pueden ejecutar tareas, procesar información y responder a las acciones de las personas usuarias.</p>
+        <p>Sin embargo, programar no consiste simplemente en escribir líneas de código. Programar significa <strong>dar instrucciones precisas a una máquina</strong> para que realice una tarea concreta. Para ello, es necesario entender cómo se organiza la información, cómo se representa en un programa y cómo se pueden construir soluciones paso a paso.</p>
+        <p>En este tema se estudian los <strong>fundamentos de programación</strong>, es decir, los elementos más básicos y esenciales que permiten empezar a crear programas. Estos fundamentos sirven como base para todo lo que vendrá después: estructuras de control, algoritmos, funciones, programación orientada a objetos y desarrollo de aplicaciones más complejas.</p>
+        <p>Cuando una persona empieza a programar, suele pensar que lo más importante es aprender muchos comandos o mucha sintaxis. Sin embargo, lo más importante al principio es entender bien las ideas fundamentales:</p>
+        <ul>
+          <li>qué es un programa</li>
+          <li>qué es una instrucción</li>
+          <li>cómo se almacenan datos</li>
+          <li>qué son las variables</li>
+          <li>qué tipos de datos existen</li>
+          <li>cómo entra y sale la información de un programa</li>
+        </ul>
+        <p>Estas ideas son esenciales porque están presentes en prácticamente cualquier lenguaje de programación. Aunque la sintaxis de Python, Java o JavaScript sea distinta, los conceptos básicos son muy similares.</p>
+        <p>En este apartado nos centraremos en:</p>
+        <ul>
+          <li>qué es un programa</li>
+          <li>variables</li>
+          <li>tipos de datos</li>
+          <li>entrada y salida</li>
+        </ul>
+        <p>El objetivo es que el alumnado comprenda no solo cómo escribir programas simples, sino también <strong>qué está ocurriendo realmente cuando un programa se ejecuta</strong>.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>¿Qué es un programa?</h4>
+        <p>Un <strong>programa</strong> es un conjunto de instrucciones escritas en un lenguaje de programación que indican a un ordenador qué debe hacer. Estas instrucciones se ejecutan en un orden determinado y permiten resolver una tarea concreta. Un programa puede ser muy sencillo, como mostrar un mensaje en pantalla, o muy complejo, como una red social, un videojuego o un sistema bancario.</p>
+        <p>Una idea fundamental es que el ordenador no entiende intenciones humanas generales. Necesita instrucciones claras, exactas y ordenadas. Si queremos que un programa calcule la suma de dos números, debemos indicarle que lea el primer número, lea el segundo, los sume y muestre el resultado.</p>
+        <p>Por ejemplo, este programa muy simple muestra un mensaje:</p>
+        <pre><code>print("Hola")</code></pre>
+        <p>Aunque sea muy sencillo, ya cumple la definición de programa, porque es una instrucción escrita en un lenguaje que el ordenador puede ejecutar.</p>
+        <p>Es importante no confundir <strong>programa</strong> con <strong>algoritmo</strong>. Un algoritmo es la secuencia lógica de pasos para resolver un problema. Un programa es la implementación de ese algoritmo en un lenguaje que la máquina puede ejecutar.</p>
+
+        <h4>Instrucciones y secuencia de ejecución</h4>
+        <p>Un programa está formado por <strong>instrucciones</strong>. Una instrucción es una orden concreta que el ordenador debe ejecutar. Algunas instrucciones sirven para guardar datos, otras para hacer cálculos, otras para mostrar resultados y otras para controlar el flujo del programa.</p>
+        <p>Por ejemplo:</p>
+        <pre><code>x = 10
+y = 20
+resultado = x + y
+print(resultado)</code></pre>
+        <p>En este caso, el programa ejecuta las instrucciones en orden: primero guarda 10 en <code>x</code>, después 20 en <code>y</code>, luego calcula la suma y finalmente muestra el resultado. Este orden es importante, porque si las instrucciones cambian de posición, el comportamiento del programa también puede cambiar.</p>
+
+        <h4>Variables</h4>
+        <p>Una <strong>variable</strong> es un espacio de memoria con un nombre que se utiliza para almacenar un dato que puede cambiar durante la ejecución del programa. Se puede imaginar como una caja con etiqueta: la etiqueta es el nombre de la variable y el contenido es el valor almacenado.</p>
+        <p>Por ejemplo:</p>
+        <pre><code>edad = 16</code></pre>
+        <p>Aquí, <code>edad</code> es el nombre de la variable y <code>16</code> es el valor que contiene.</p>
+        <p>Se llaman variables porque su valor puede variar. Por ejemplo:</p>
+        <pre><code>puntos = 10
+puntos = 15</code></pre>
+        <p>Primero la variable <code>puntos</code> vale 10 y después pasa a valer 15.</p>
+        <p>Cuando escribimos una instrucción como <code>x = 7</code>, estamos haciendo una <strong>asignación</strong>. Esto no significa “x es igual a 7” en sentido matemático, sino “guardar el valor 7 en la variable x”.</p>
+        <p>También puede producirse una <strong>reasignación</strong>:</p>
+        <pre><code>contador = 1
+contador = contador + 1</code></pre>
+        <p>Aquí, el nuevo valor de <code>contador</code> pasa a ser el valor anterior más 1.</p>
+        <p>Elegir buenos nombres para las variables es muy importante. Por ejemplo, un programa se entiende mejor si usa nombres como <code>nota_media</code> o <code>precio_final</code> en lugar de nombres poco claros como <code>x</code> o <code>dato1</code>.</p>
+
+        <h4>Tipos de datos</h4>
+        <p>Los <strong>tipos de datos</strong> indican qué clase de información se almacena en una variable y qué operaciones pueden realizarse con ella. No todos los datos son iguales: un número entero, una palabra o un valor verdadero/falso se comportan de manera distinta.</p>
+        <p>Los tipos básicos más habituales son:</p>
+        <ul>
+          <li><strong>Enteros</strong>: números sin decimales, como 5, -2 o 0.</li>
+          <li><strong>Reales o decimales</strong>: números con parte decimal, como 3.5 o 19.99.</li>
+          <li><strong>Cadenas de texto</strong>: secuencias de caracteres, como "Hola" o "Ana".</li>
+          <li><strong>Booleanos</strong>: valores lógicos, que solo pueden ser <code>True</code> o <code>False</code>.</li>
+        </ul>
+        <p>Ejemplos:</p>
+        <pre><code>edad = 17
+altura = 1.72
+nombre = "Carlos"
+aprobado = True</code></pre>
+        <p>Es fundamental entender que <code>5</code> no es lo mismo que <code>"5"</code>. El primero es un número y el segundo es texto. Esta diferencia afecta a las operaciones que se pueden hacer con cada dato.</p>
+        <p>A veces es necesario convertir datos de un tipo a otro. Por ejemplo, los datos introducidos por teclado suelen llegar como texto, por lo que si queremos operar con ellos matemáticamente tendremos que convertirlos:</p>
+        <pre><code>edad_texto = input("Introduce tu edad: ")
+edad_numero = int(edad_texto)</code></pre>
+
+        <h4>Entrada de datos</h4>
+        <p>La <strong>entrada</strong> es la información que recibe un programa para poder trabajar con ella. Esa entrada puede proceder del teclado, de un archivo, de sensores, de una base de datos o de Internet. En los programas básicos, lo más habitual es obtenerla del teclado.</p>
+        <p>Ejemplo:</p>
+        <pre><code>nombre = input("Introduce tu nombre: ")</code></pre>
+        <p>Aquí el programa pide al usuario que escriba su nombre y lo guarda en una variable.</p>
+        <p>La entrada es importante porque hace que el programa sea interactivo. Si un programa no pudiera recibir datos, solo podría realizar siempre las mismas acciones.</p>
+
+        <h4>Salida de datos</h4>
+        <p>La <strong>salida</strong> es la información que el programa muestra, devuelve o produce como resultado. En los programas básicos suele mostrarse por pantalla, aunque también puede enviarse a archivos, impresoras, gráficos o dispositivos externos.</p>
+        <p>Ejemplo:</p>
+        <pre><code>print("Hola")</code></pre>
+        <p>También puede mostrarse el contenido de variables:</p>
+        <pre><code>nombre = "Ana"
+print(nombre)</code></pre>
+        <p>La salida es esencial porque permite comunicar al usuario lo que el programa ha hecho o cuál es el resultado de sus operaciones.</p>
+
+        <h4>Entrada → proceso → salida</h4>
+        <p>Una forma muy útil de entender los programas es mediante el modelo:</p>
+        <p><strong>Entrada → Proceso → Salida</strong></p>
+        <p>La <strong>entrada</strong> son los datos que recibe el programa. El <strong>proceso</strong> son las operaciones que realiza con esos datos. La <strong>salida</strong> es el resultado final.</p>
+        <p>Por ejemplo, para calcular el área de un rectángulo:</p>
+        <ul>
+          <li><strong>Entrada:</strong> base y altura</li>
+          <li><strong>Proceso:</strong> multiplicar base por altura</li>
+          <li><strong>Salida:</strong> el área calculada</li>
+        </ul>
+        <pre><code>base = float(input("Introduce la base: "))
+altura = float(input("Introduce la altura: "))
+area = base * altura
+print("El área es:", area)</code></pre>
+
+        <h4>Expresiones y operadores básicos</h4>
+        <p>Una <strong>expresión</strong> es una combinación de valores, variables y operadores que produce un resultado. Por ejemplo:</p>
+        <pre><code>3 + 4
+edad + 1</code></pre>
+        <p>Los operadores aritméticos más habituales son:</p>
+        <ul>
+          <li><code>+</code> suma</li>
+          <li><code>-</code> resta</li>
+          <li><code>*</code> multiplicación</li>
+          <li><code>/</code> división</li>
+          <li><code>//</code> división entera</li>
+          <li><code>%</code> resto</li>
+          <li><code>**</code> potencia</li>
+        </ul>
+        <p>Ejemplo:</p>
+        <pre><code>a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)
+print(a % b)
+print(a ** b)</code></pre>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Programa:</strong> conjunto de instrucciones que el ordenador puede ejecutar.</li>
+          <li><strong>Instrucción:</strong> orden concreta que el programa realiza.</li>
+          <li><strong>Variable:</strong> espacio de memoria con nombre que almacena un dato.</li>
+          <li><strong>Asignación:</strong> operación de guardar un valor en una variable.</li>
+          <li><strong>Tipo de dato:</strong> clase de información almacenada, como entero, texto o booleano.</li>
+          <li><strong>Entrada:</strong> datos que recibe el programa.</li>
+          <li><strong>Salida:</strong> resultado que el programa muestra o produce.</li>
+          <li><strong>Expresión:</strong> combinación de valores y operadores que produce un resultado.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos que queremos crear un programa que calcule la nota media de dos exámenes.</p>
+
+        <pre><code>nota1 = float(input("Introduce la primera nota: "))
+nota2 = float(input("Introduce la segunda nota: "))
+media = (nota1 + nota2) / 2
+print("La nota media es:", media)</code></pre>
+
+        <p><strong>Qué ocurre en este programa:</strong></p>
+        <ul>
+          <li>Se pide al usuario que introduzca dos notas.</li>
+          <li>Las entradas se convierten a números decimales.</li>
+          <li>Se calcula la media aritmética.</li>
+          <li>Se muestra el resultado en pantalla.</li>
+        </ul>
+
+        <p><strong>Qué conceptos aparecen aquí:</strong></p>
+        <ul>
+          <li>programa</li>
+          <li>variables</li>
+          <li>tipos de datos</li>
+          <li>entrada</li>
+          <li>salida</li>
+          <li>operadores</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Calculadoras:</strong> reciben números, realizan operaciones y muestran resultados.</li>
+          <li><strong>Formularios web:</strong> reciben datos del usuario y los almacenan o validan.</li>
+          <li><strong>Videojuegos:</strong> guardan puntuaciones, posiciones y estados del juego en variables.</li>
+          <li><strong>Apps móviles:</strong> procesan datos de entrada y generan salidas visuales o sonoras.</li>
+          <li><strong>Robótica:</strong> los sistemas leen sensores, procesan información y actúan en consecuencia.</li>
+        </ul>
+        <p>Aunque los programas reales sean mucho más complejos, todos dependen de estas ideas básicas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir variable con valor:</strong> una variable no es el dato en sí, sino el nombre que lo referencia.</li>
+          <li><strong>Pensar que "=" significa igualdad matemática:</strong> en programación normalmente significa asignación.</li>
+          <li><strong>No distinguir entre número y texto:</strong> 5 y "5" no son lo mismo.</li>
+          <li><strong>Usar nombres poco claros:</strong> dificulta la comprensión del programa.</li>
+          <li><strong>Olvidar convertir tipos:</strong> los datos introducidos por teclado suelen llegar como texto.</li>
+          <li><strong>No entender el flujo entrada-proceso-salida:</strong> esto provoca muchos errores de razonamiento.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>B1.1 Pensamiento computacional:</strong> los fundamentos de programación permiten convertir el razonamiento estructurado en código.</li>
+          <li><strong>B2.2 Estructuras de datos:</strong> después de las variables simples se estudiarán formas de almacenar varios datos.</li>
+          <li><strong>B2.3 Constructos de programación:</strong> condicionales y bucles amplían lo que un programa puede hacer.</li>
+          <li><strong>B2.4 Algoritmos de programación:</strong> los programas implementan algoritmos concretos.</li>
+          <li><strong>B2.5 Procesamiento de archivos:</strong> la entrada y salida también pueden realizarse mediante archivos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Un <strong>programa</strong> es un conjunto de instrucciones que el ordenador puede ejecutar.</li>
+          <li>Las <strong>variables</strong> permiten almacenar datos usando nombres.</li>
+          <li>Los <strong>tipos de datos</strong> indican qué clase de información se guarda.</li>
+          <li>La <strong>entrada</strong> proporciona datos al programa.</li>
+          <li>La <strong>salida</strong> muestra o devuelve resultados.</li>
+          <li>Muchos programas siguen el modelo <strong>entrada → proceso → salida</strong>.</li>
+          <li>Estos fundamentos son la base de toda la programación posterior.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es un programa y explica en qué se diferencia de un algoritmo.</li>
+          <li>Explica qué es una variable y por qué es importante en programación.</li>
+          <li>Describe diferentes tipos de datos y pon un ejemplo de cada uno.</li>
+          <li>Explica la diferencia entre entrada y salida en un programa.</li>
+          <li>Analiza por qué es importante convertir correctamente los tipos de datos cuando un usuario introduce información.</li>
+          <li>Explica el modelo entrada → proceso → salida con un ejemplo propio.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es un programa?</li>
+          <li>¿Qué es una variable?</li>
+          <li>¿Qué diferencia hay entre 5 y "5"?</li>
+          <li>¿Qué es la entrada de datos?</li>
+          <li>¿Qué es la salida de datos?</li>
+          <li>¿Qué significa que una variable pueda cambiar de valor?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es un conjunto de instrucciones que el ordenador ejecuta para realizar una tarea.</li>
+          <li>Es un espacio de memoria con nombre que almacena un dato.</li>
+          <li>5 es un número; "5" es texto.</li>
+          <li>Es la información que recibe un programa para trabajar con ella.</li>
+          <li>Es la información que el programa muestra o produce como resultado.</li>
+          <li>Significa que durante la ejecución puede almacenarse un nuevo valor en la misma variable.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="b1_1.html" style="color:#102a43;border-color:#9fb5d9;">← B1.1</a>
+        <a class="btn btn-primary" href="b2_2.html">B2.2 →</a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+<div class="container">
+<p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+<p>© 2026 Pablo Durán Guerrero. Todos los derechos reservados. Queda prohibida la reproducción, distribución o modificación total o parcial de este contenido sin autorización expresa por escrito.</p>
+<p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+</div>
+</footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
