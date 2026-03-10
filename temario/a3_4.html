@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A3.4 Normalización de bases de datos | Temario NM</title>
+  <meta name="description" content="A3.4 de informática IB nivel medio: normalización de bases de datos, primera, segunda y tercera forma normal con explicación extensa, ejemplos paso a paso, ejercicios y soluciones." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.4
+      </div>
+
+      <p class="kicker">Temario NM · A3.4</p>
+      <h2>A3.4 Normalización de bases de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo podemos organizar los datos de una base de datos para evitar duplicaciones, reducir errores y conseguir una estructura más clara, eficiente y fácil de mantener?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>Cuando una base de datos se diseña mal, los datos suelen repetirse muchas veces. A primera vista esto puede parecer cómodo, porque toda la información aparece junta en una sola tabla. Sin embargo, en cuanto el sistema empieza a crecer, surgen muchos problemas: aparecen errores, los cambios se vuelven difíciles y la información puede dejar de ser coherente.</p>
+        <p>Imagina una tabla donde cada vez que un cliente hace una compra se vuelve a escribir su nombre, su dirección y su número de teléfono. Si ese cliente realiza diez compras, esa misma información aparecerá repetida diez veces. Si un día cambia de dirección, habría que corregirla en diez filas distintas. Si una se olvida, la base de datos queda inconsistente.</p>
+        <p>La <strong>normalización</strong> es el proceso que se utiliza para organizar correctamente los datos y reducir este tipo de problemas. Su objetivo principal es dividir la información de forma lógica para que cada dato se almacene en el lugar adecuado y solo se repita cuando sea estrictamente necesario.</p>
+        <p>Normalizar una base de datos no significa complicarla sin motivo. Significa diseñarla con orden. Una base de datos bien normalizada suele ser:</p>
+        <ul>
+          <li>más fácil de mantener</li>
+          <li>más clara de entender</li>
+          <li>menos propensa a errores</li>
+          <li>más eficiente para actualizar información</li>
+          <li>más fiable cuando varios usuarios trabajan con los mismos datos</li>
+        </ul>
+        <p>En este apartado estudiaremos las tres formas normales más importantes:</p>
+        <ul>
+          <li><strong>Primera Forma Normal (1FN)</strong></li>
+          <li><strong>Segunda Forma Normal (2FN)</strong></li>
+          <li><strong>Tercera Forma Normal (3FN)</strong></li>
+        </ul>
+        <p>Lo importante no es memorizar una definición sin más, sino entender <strong>qué problema resuelve cada forma normal</strong> y cómo se pasa de una a otra.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>¿Por qué es necesaria la normalización?</h3>
+        <p>La normalización intenta evitar varios problemas habituales en las bases de datos mal diseñadas.</p>
+        <p><strong>1. Redundancia de datos</strong></p>
+        <p>La misma información aparece repetida muchas veces. Esto ocupa más espacio y aumenta el riesgo de error.</p>
+        <p><strong>2. Anomalías de actualización</strong></p>
+        <p>Cuando un dato cambia, hay que modificarlo en varios lugares. Si no se actualizan todos, aparecen contradicciones.</p>
+        <p><strong>3. Anomalías de inserción</strong></p>
+        <p>A veces no se puede añadir información sin inventar o duplicar otros datos que no deberían ser necesarios.</p>
+        <p><strong>4. Anomalías de borrado</strong></p>
+        <p>Eliminar un registro puede hacer que perdamos información importante que en realidad debería mantenerse en otra tabla.</p>
+        <p>La normalización ayuda a resolver estos problemas separando los datos en varias tablas relacionadas entre sí mediante claves primarias y claves externas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Idea general de las formas normales</h3>
+        <p>Las formas normales pueden entenderse como niveles de organización.</p>
+        <ul>
+          <li><strong>1FN:</strong> obliga a que cada celda contenga un solo valor y que la tabla tenga una estructura básica correcta.</li>
+          <li><strong>2FN:</strong> elimina dependencias parciales, es decir, datos que dependen solo de una parte de la clave.</li>
+          <li><strong>3FN:</strong> elimina dependencias entre campos no clave, de forma que cada dato dependa solo de la clave primaria.</li>
+        </ul>
+        <p>En otras palabras:</p>
+        <ul>
+          <li>Primero organizamos bien las celdas.</li>
+          <li>Después revisamos de qué depende cada dato.</li>
+          <li>Por último, quitamos datos que deberían estar en otra tabla.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Primera Forma Normal (1FN)</h3>
+        <p>Una tabla está en <strong>Primera Forma Normal</strong> cuando cada campo contiene un único valor y no hay grupos repetidos ni listas dentro de una celda.</p>
+        <p>Esto puede parecer obvio, pero es uno de los errores más comunes cuando alguien diseña una base de datos por primera vez. Muchas veces se intenta guardar varios valores en una sola celda para “ahorrar espacio” o para que todo parezca más simple.</p>
+
+        <h4>Ejemplo de tabla que NO está en 1FN</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre</th>
+              <th>Asignaturas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Matemáticas, Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Esta tabla no está en 1FN porque en el campo <strong>Asignaturas</strong> puede haber más de un valor. Una base de datos relacional no debería guardar listas dentro de una sola celda.</p>
+
+        <h4>Problemas de esta tabla</h4>
+        <ul>
+          <li>No es fácil buscar todas las personas que cursan una asignatura concreta.</li>
+          <li>Es más difícil añadir o eliminar asignaturas.</li>
+          <li>No se pueden tratar las asignaturas como datos individuales.</li>
+        </ul>
+
+        <h4>Transformación a 1FN</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre</th>
+              <th>Asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Matemáticas</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Ahora cada celda contiene un único valor. Esta estructura ya cumple la 1FN.</p>
+
+        <h4>Qué has hecho realmente al pasar a 1FN</h4>
+        <ul>
+          <li>Has eliminado valores múltiples en una misma celda.</li>
+          <li>Has convertido cada dato en una unidad individual.</li>
+          <li>Has dejado la tabla preparada para un análisis más profundo.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Segunda Forma Normal (2FN)</h3>
+        <p>Una tabla está en <strong>Segunda Forma Normal</strong> cuando:</p>
+        <ul>
+          <li>ya está en 1FN</li>
+          <li>todos los campos no clave dependen de la clave completa, no solo de una parte de ella</li>
+        </ul>
+        <p>Este problema aparece sobre todo cuando una tabla tiene una <strong>clave primaria compuesta</strong>, es decir, una clave formada por más de un campo.</p>
+
+        <h4>Ejemplo en 1FN pero NO en 2FN</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>ID_Asignatura</th>
+              <th>Nombre_Alumno</th>
+              <th>Nombre_Asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+              <td>Ana</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>101</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>102</td>
+              <td>Ana</td>
+              <td>Matemáticas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Supongamos que la clave principal de esta tabla es la combinación <strong>(ID_Alumno, ID_Asignatura)</strong>, porque cada fila representa la matrícula de un alumno en una asignatura.</p>
+
+        <h4>¿Dónde está el problema?</h4>
+        <p>Los campos <strong>Nombre_Alumno</strong> y <strong>Nombre_Asignatura</strong> no dependen de toda la clave compuesta.</p>
+        <ul>
+          <li><strong>Nombre_Alumno</strong> depende solo de <strong>ID_Alumno</strong>.</li>
+          <li><strong>Nombre_Asignatura</strong> depende solo de <strong>ID_Asignatura</strong>.</li>
+        </ul>
+        <p>Eso significa que hay <strong>dependencias parciales</strong>, y por tanto la tabla no está en 2FN.</p>
+
+        <h4>Cómo pasar a 2FN</h4>
+        <p>Debemos separar la información en tablas donde cada dato dependa completamente de su clave.</p>
+
+        <p><strong>Tabla Alumnos</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre_Alumno</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Asignaturas</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Asignatura</th>
+              <th>Nombre_Asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>Matemáticas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Matrículas</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>ID_Asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>101</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>102</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Qué has conseguido al pasar a 2FN</h4>
+        <ul>
+          <li>Los nombres de alumnos ya no se repiten innecesariamente.</li>
+          <li>Los nombres de asignaturas también dejan de repetirse.</li>
+          <li>Cada tabla almacena solo la información que realmente le corresponde.</li>
+          <li>La relación entre alumnos y asignaturas queda representada de forma clara.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Tercera Forma Normal (3FN)</h3>
+        <p>Una tabla está en <strong>Tercera Forma Normal</strong> cuando:</p>
+        <ul>
+          <li>ya está en 2FN</li>
+          <li>ningún campo no clave depende de otro campo no clave</li>
+        </ul>
+        <p>En otras palabras, cada dato debe depender directamente de la clave primaria, y no de otro atributo secundario.</p>
+
+        <h4>Ejemplo en 2FN pero NO en 3FN</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Empleado</th>
+              <th>Nombre_Empleado</th>
+              <th>ID_Departamento</th>
+              <th>Nombre_Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>10</td>
+              <td>Ventas</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>20</td>
+              <td>Marketing</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Lucía</td>
+              <td>10</td>
+              <td>Ventas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>¿Cuál es el problema?</h4>
+        <p>La clave primaria es <strong>ID_Empleado</strong>. El campo <strong>Nombre_Departamento</strong> no depende directamente de esa clave, sino de <strong>ID_Departamento</strong>.</p>
+        <p>Eso significa que existe una <strong>dependencia transitiva</strong>:</p>
+        <p><strong>ID_Empleado → ID_Departamento → Nombre_Departamento</strong></p>
+        <p>Como Nombre_Departamento depende de otro campo no clave, la tabla no está en 3FN.</p>
+
+        <h4>Cómo pasar a 3FN</h4>
+        <p>Debemos separar la información del departamento en otra tabla.</p>
+
+        <p><strong>Tabla Empleados</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Empleado</th>
+              <th>Nombre_Empleado</th>
+              <th>ID_Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Lucía</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Departamentos</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Departamento</th>
+              <th>Nombre_Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10</td>
+              <td>Ventas</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Marketing</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Qué has conseguido al pasar a 3FN</h4>
+        <ul>
+          <li>La información del departamento se guarda una sola vez.</li>
+          <li>Si cambia el nombre del departamento, solo hay que modificar una fila.</li>
+          <li>La base de datos queda más limpia y coherente.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Cómo pasar de 1FN a 2FN y de 2FN a 3FN</h3>
+        <p>Muchos estudiantes se pierden porque intentan memorizar las definiciones sin entender el proceso. Una forma más útil de pensarlo es esta:</p>
+
+        <h4>Paso 1: llegar a 1FN</h4>
+        <ul>
+          <li>Revisa si hay listas o varios valores dentro de una misma celda.</li>
+          <li>Separa esos valores para que cada celda contenga un solo dato.</li>
+          <li>Asegúrate de que cada fila representa una sola cosa o una sola relación.</li>
+        </ul>
+
+        <h4>Paso 2: llegar a 2FN</h4>
+        <ul>
+          <li>Identifica la clave primaria.</li>
+          <li>Si la clave es compuesta, revisa si todos los demás campos dependen de toda la clave.</li>
+          <li>Si algún campo depende solo de una parte, sepáralo en otra tabla.</li>
+        </ul>
+
+        <h4>Paso 3: llegar a 3FN</h4>
+        <ul>
+          <li>Observa si algún campo no clave depende de otro campo no clave.</li>
+          <li>Si eso ocurre, crea una nueva tabla para esa información.</li>
+          <li>Deja en la tabla original solo el identificador necesario para relacionarlas.</li>
+        </ul>
+
+        <p>Una manera muy sencilla de recordarlo es:</p>
+        <ul>
+          <li><strong>1FN:</strong> una celda, un valor.</li>
+          <li><strong>2FN:</strong> cada dato debe depender de toda la clave.</li>
+          <li><strong>3FN:</strong> cada dato debe depender solo de la clave, y no de otro campo intermedio.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo completo paso a paso</h3>
+        <p>Vamos a partir de una tabla poco eficiente y la iremos mejorando.</p>
+
+        <p><strong>Tabla inicial</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre_Alumno</th>
+              <th>Asignaturas</th>
+              <th>ID_Profesor</th>
+              <th>Nombre_Profesor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Informática, Matemáticas</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Problema 1: no está en 1FN</h4>
+        <p>El campo Asignaturas tiene varios valores en una sola celda.</p>
+
+        <h4>Paso a 1FN</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre_Alumno</th>
+              <th>Asignatura</th>
+              <th>ID_Profesor</th>
+              <th>Nombre_Profesor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Informática</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Matemáticas</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Problema 2: no está en 2FN</h4>
+        <p>Si consideramos que la clave de cada fila es la combinación (ID_Alumno, Asignatura), entonces:</p>
+        <ul>
+          <li>Nombre_Alumno depende solo de ID_Alumno</li>
+          <li>ID_Profesor y Nombre_Profesor dependen de la asignatura o de otra entidad relacionada, no de toda la clave</li>
+        </ul>
+
+        <h4>Paso a 2FN</h4>
+        <p><strong>Tabla Alumnos</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre_Alumno</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Matrículas</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Asignatura</th>
+              <th>ID_Profesor</th>
+              <th>Nombre_Profesor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Informática</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Matemáticas</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Informática</td>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Problema 3: todavía no está en 3FN</h4>
+        <p>En la tabla Matrículas, el campo Nombre_Profesor depende de ID_Profesor, no directamente de la clave de la tabla.</p>
+
+        <h4>Paso a 3FN</h4>
+        <p><strong>Tabla Profesores</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Profesor</th>
+              <th>Nombre_Profesor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>50</td>
+              <td>Juan</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla Matrículas final</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Asignatura</th>
+              <th>ID_Profesor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Informática</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Matemáticas</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Informática</td>
+              <td>50</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Así la estructura queda mucho más limpia.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir repetir filas con repetir datos:</strong> que una persona aparezca varias veces no siempre es un error; lo importante es si se está repitiendo información innecesaria.</li>
+          <li><strong>No identificar bien la clave primaria:</strong> si no sabes cuál es la clave, es muy difícil detectar dependencias parciales o transitivas.</li>
+          <li><strong>Pensar que 1FN, 2FN y 3FN son lo mismo:</strong> cada una resuelve un problema distinto.</li>
+          <li><strong>No entender la dependencia parcial:</strong> aparece cuando un campo depende solo de una parte de una clave compuesta.</li>
+          <li><strong>No entender la dependencia transitiva:</strong> aparece cuando un campo depende de otro campo no clave.</li>
+          <li><strong>Dividir tablas sin criterio:</strong> normalizar no es separar por separar, sino mover cada dato a la tabla donde realmente debe estar.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>La normalización organiza los datos para evitar redundancias y errores.</li>
+          <li>La <strong>1FN</strong> exige que cada celda contenga un único valor.</li>
+          <li>La <strong>2FN</strong> elimina dependencias parciales respecto a claves compuestas.</li>
+          <li>La <strong>3FN</strong> elimina dependencias entre campos no clave.</li>
+          <li>Normalizar mejora la consistencia, simplifica las actualizaciones y hace la base de datos más fiable.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejercicios para resolver</h3>
+
+        <h4>Ejercicio 1</h4>
+        <p>La siguiente tabla guarda información de matrículas:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>Nombre_Alumno</th>
+              <th>Asignaturas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>Informática, Matemáticas</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+            </tr>
+          </tbody>
+        </table>
+        <ol>
+          <li>Explica por qué esta tabla no está en 1FN.</li>
+          <li>Transforma la tabla para que cumpla la 1FN.</li>
+        </ol>
+
+        <h4>Ejercicio 2</h4>
+        <p>Observa esta tabla:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Alumno</th>
+              <th>ID_Asignatura</th>
+              <th>Nombre_Alumno</th>
+              <th>Nombre_Asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>101</td>
+              <td>Ana</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>101</td>
+              <td>Carlos</td>
+              <td>Informática</td>
+            </tr>
+          </tbody>
+        </table>
+        <ol>
+          <li>¿Está en 1FN?</li>
+          <li>¿Está en 2FN?</li>
+          <li>Si no lo está, divídela correctamente.</li>
+        </ol>
+
+        <h4>Ejercicio 3</h4>
+        <p>Observa esta tabla:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_Empleado</th>
+              <th>Nombre_Empleado</th>
+              <th>ID_Departamento</th>
+              <th>Nombre_Departamento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+              <td>10</td>
+              <td>Ventas</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+              <td>20</td>
+              <td>Marketing</td>
+            </tr>
+          </tbody>
+        </table>
+        <ol>
+          <li>Explica por qué esta tabla no está en 3FN.</li>
+          <li>Divídela en las tablas necesarias para que sí lo esté.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Soluciones orientativas</h3>
+
+        <h4>Solución ejercicio 1</h4>
+        <p>No está en 1FN porque el campo Asignaturas contiene más de un valor en una misma celda. Para corregirlo, cada asignatura debe ir en una fila distinta.</p>
+
+        <h4>Solución ejercicio 2</h4>
+        <p>Sí está en 1FN porque cada celda contiene un solo valor. No está en 2FN porque Nombre_Alumno depende solo de ID_Alumno y Nombre_Asignatura depende solo de ID_Asignatura. La solución es separar la tabla en Alumnos, Asignaturas y Matrículas.</p>
+
+        <h4>Solución ejercicio 3</h4>
+        <p>No está en 3FN porque Nombre_Departamento depende de ID_Departamento y no directamente de ID_Empleado. La solución es crear una tabla Empleados y otra tabla Departamentos, unidas por ID_Departamento.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Explica qué es la normalización y por qué es importante en el diseño de bases de datos.</li>
+          <li>Describe las diferencias entre primera, segunda y tercera forma normal.</li>
+          <li>Explica qué se entiende por dependencia parcial y por dependencia transitiva.</li>
+          <li>Analiza una tabla dada y justifica si cumple 1FN, 2FN o 3FN.</li>
+          <li>Propón cómo dividir una tabla mal diseñada para mejorar su estructura.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué intenta evitar la normalización?</li>
+          <li>¿Qué exige la 1FN?</li>
+          <li>¿Qué problema corrige la 2FN?</li>
+          <li>¿Qué problema corrige la 3FN?</li>
+          <li>¿Por qué es útil dividir una tabla en varias tablas relacionadas?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Intenta evitar redundancias, inconsistencias y problemas de actualización, inserción o borrado.</li>
+          <li>Exige que cada celda contenga un único valor y que no haya listas dentro de los campos.</li>
+          <li>Corrige las dependencias parciales respecto a una clave compuesta.</li>
+          <li>Corrige las dependencias transitivas entre campos no clave.</li>
+          <li>Porque cada dato se guarda en el lugar adecuado, se repite menos y resulta más fácil de mantener.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="a3_3.html" style="color:#102a43;border-color:#9fb5d9;">← A3.3</a>
+        <a class="btn btn-primary" href="a4_1.html">A4.1 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
