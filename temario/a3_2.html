@@ -1,21 +1,248 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>A3.2 Diseño de bases de datos | Temario NM</title><meta name="description" content="A3.2 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.2</div>
-<p class="kicker">Temario NM · A3.2</p><h2>A3.2 Diseño de bases de datos</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo diseñar una base de datos que evite redundancias y errores?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Diseñar bien una BD evita duplicidades y errores futuros.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>El modelo relacional usa claves primarias para identificar registros y claves externas para relacionar tablas.</p><p>La normalización básica (1NF, 2NF, 3NF) reduce redundancia y mejora coherencia de datos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Modelo relacional</li><li>Clave primaria</li><li>Clave externa</li><li>Normalización básica</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Sistema de matrículas: Estudiantes, Asignaturas y Matrículas enlazadas por claves evita duplicar información.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>ERP, sistemas escolares, comercio electrónico.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>No definir PK; guardar listas dentro de una celda; relaciones mal planteadas.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>A3.3 (consultas SQL), B1.1 (descomposición), A2 (servicios en red).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Diseño correcto mejora calidad de datos.</li><li>PK/FK sostienen relaciones fiables.</li><li>Normalizar previene anomalías.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="a3_1.html" style="color:#102a43;border-color:#9fb5d9;">← A3.1</a><a class="btn btn-primary" href="a3_3.html">A3.3 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A3.2 Diseño de bases de datos | Temario NM</title>
+  <meta name="description" content="A3.2 de informática IB nivel medio: diseño de bases de datos, modelo relacional, claves primarias, claves externas y normalización básica con explicación completa, ejemplo, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.2
+      </div>
+
+      <p class="kicker">Temario NM · A3.2</p>
+      <h2>A3.2 Diseño de bases de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se puede diseñar una base de datos que organice correctamente la información, evite duplicaciones y permita mantener los datos de forma coherente y eficiente?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>Cuando una base de datos se utiliza en una aplicación real, no basta con guardar datos en una tabla. Es necesario planificar cómo se va a estructurar la información antes de almacenarla. Un buen diseño de base de datos permite evitar duplicación de datos, reducir errores e inconsistencias, facilitar las consultas y mejorar el mantenimiento del sistema.</p>
+        <p>Si una base de datos está mal diseñada, pueden aparecer problemas como datos repetidos, información contradictoria, dificultad para actualizar registros o errores al relacionar datos. Por esta razón, el diseño de bases de datos es una parte fundamental del desarrollo de sistemas informáticos.</p>
+        <p>En este apartado estudiaremos los conceptos básicos que permiten diseñar correctamente una base de datos relacional: el modelo relacional, las claves primarias, las claves externas y la normalización básica.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+        <p>El <strong>modelo relacional</strong> es el modelo más utilizado para organizar bases de datos. En este modelo, los datos se organizan en <strong>tablas relacionadas entre sí</strong>. Cada tabla representa un tipo de entidad o conjunto de datos. Por ejemplo, una base de datos escolar podría tener una tabla para estudiantes, otra para asignaturas y otra para matrículas.</p>
+        <p>La principal ventaja del modelo relacional es que permite separar la información en estructuras claras y conectarlas mediante relaciones. Esto hace que los datos sean más fáciles de mantener y consultar. En lugar de guardar toda la información en una única tabla enorme, se divide en varias tablas con un propósito concreto.</p>
+        <p>Para que esto funcione correctamente, cada tabla suele tener una <strong>clave primaria</strong>. Una clave primaria es un campo que identifica de manera única cada registro de una tabla. Por ejemplo, en una tabla de estudiantes, el campo <em>ID_estudiante</em> puede ser la clave primaria. No puede repetirse y no debe quedar vacío, porque sirve para distinguir cada registro de los demás.</p>
+        <p>Además, las bases de datos relacionales utilizan <strong>claves externas</strong>. Una clave externa es un campo que crea una relación entre dos tablas. Contiene valores que corresponden a la clave primaria de otra tabla. Por ejemplo, una tabla de pedidos puede incluir el campo <em>ID_cliente</em> para indicar qué cliente realizó cada pedido. Así, en lugar de repetir el nombre completo del cliente en cada pedido, se guarda una referencia a su registro original.</p>
+        <p>Otro concepto importante es la <strong>normalización</strong>. La normalización es un proceso que organiza los datos de una base de datos para <strong>eliminar redundancias y evitar inconsistencias</strong>. En términos sencillos, significa dividir la información en varias tablas cuando sea necesario para que no se repitan datos de forma innecesaria.</p>
+        <p>Por ejemplo, imaginemos una tabla de pedidos donde en cada fila aparecen el nombre del cliente, su dirección y el producto comprado. Si el mismo cliente realiza varios pedidos, su nombre y dirección se repetirán muchas veces. Esto aumenta el riesgo de errores: si cambia la dirección, habría que modificarla en todas las filas. Una mejor solución es guardar la información del cliente en una tabla y los pedidos en otra, conectadas mediante una clave externa.</p>
+        <p>Un buen diseño de base de datos hace que el sistema sea más eficiente, más claro y menos propenso a errores. También prepara la base para trabajar con consultas SQL, ya que las tablas y relaciones estarán bien definidas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Modelo relacional:</strong> modelo de base de datos que organiza los datos en tablas relacionadas.</li>
+          <li><strong>Clave primaria:</strong> campo que identifica de manera única cada registro de una tabla.</li>
+          <li><strong>Clave externa:</strong> campo que conecta una tabla con otra al referirse a la clave primaria de la segunda.</li>
+          <li><strong>Normalización:</strong> proceso de organización de datos para evitar redundancias y mejorar la consistencia.</li>
+          <li><strong>Relación entre tablas:</strong> conexión lógica entre tablas mediante campos comunes.</li>
+          <li><strong>Redundancia:</strong> repetición innecesaria de información.</li>
+          <li><strong>Consistencia:</strong> mantenimiento de datos correctos y coherentes en toda la base de datos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Imaginemos una base de datos para gestionar matrículas de estudiantes.</p>
+
+        <p><strong>Tabla: Estudiantes</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_estudiante</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Ana</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Carlos</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla: Asignaturas</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_asignatura</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Informática</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Matemáticas</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><strong>Tabla: Matrículas</strong></p>
+        <table>
+          <thead>
+            <tr>
+              <th>ID_estudiante</th>
+              <th>ID_asignatura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>En este ejemplo:</p>
+        <ul>
+          <li><strong>ID_estudiante</strong> es clave primaria en la tabla Estudiantes.</li>
+          <li><strong>ID_asignatura</strong> es clave primaria en la tabla Asignaturas.</li>
+          <li>La tabla Matrículas utiliza esos identificadores para relacionar estudiantes con asignaturas.</li>
+        </ul>
+        <p>Gracias a esta estructura, no hace falta repetir el nombre del estudiante o de la asignatura en cada fila. Esto reduce la duplicación y facilita el mantenimiento de la información.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <p>El diseño correcto de bases de datos es fundamental en muchos sistemas informáticos:</p>
+        <ul>
+          <li><strong>Sistemas escolares:</strong> gestionan estudiantes, profesores, asignaturas y calificaciones.</li>
+          <li><strong>Comercio electrónico:</strong> gestionan clientes, productos, pedidos y pagos.</li>
+          <li><strong>Sistemas bancarios:</strong> gestionan cuentas, transacciones y clientes.</li>
+          <li><strong>Sistemas hospitalarios:</strong> gestionan pacientes, citas, tratamientos e historiales.</li>
+          <li><strong>Plataformas de suscripción:</strong> organizan usuarios, planes, pagos y renovaciones.</li>
+        </ul>
+        <p>En todos estos contextos, un mal diseño puede provocar errores graves, mientras que un buen diseño permite que los datos sean fiables y fáciles de usar.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>No definir una clave primaria:</strong> esto puede provocar registros duplicados o imposibles de distinguir.</li>
+          <li><strong>Guardar varios valores en un mismo campo:</strong> por ejemplo, escribir varias asignaturas dentro de una sola celda.</li>
+          <li><strong>No separar la información en varias tablas:</strong> esto genera duplicación de datos y dificulta las actualizaciones.</li>
+          <li><strong>Confundir clave primaria con clave externa:</strong> la primaria identifica un registro; la externa crea relaciones entre tablas.</li>
+          <li><strong>Pensar que más tablas siempre es mejor:</strong> dividir en exceso también puede complicar el sistema si no hay una lógica clara.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>A3.1 Fundamentos de bases de datos:</strong> proporciona la base conceptual sobre tablas, registros y campos.</li>
+          <li><strong>A3.3 Programación de bases de datos:</strong> utiliza SQL para consultar y modificar las tablas diseñadas correctamente.</li>
+          <li><strong>B1.1 Pensamiento computacional:</strong> diseñar una base de datos requiere descomposición, análisis y organización lógica.</li>
+          <li><strong>A2 Redes:</strong> muchas bases de datos funcionan en sistemas conectados en red y deben compartir información entre distintos usuarios.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>El diseño de bases de datos es esencial para almacenar información de forma eficiente y coherente.</li>
+          <li>El modelo relacional organiza los datos en tablas relacionadas.</li>
+          <li>Las claves primarias identifican registros únicos.</li>
+          <li>Las claves externas permiten relacionar tablas entre sí.</li>
+          <li>La normalización evita duplicaciones y mejora la consistencia de los datos.</li>
+          <li>Un buen diseño facilita el mantenimiento y las consultas posteriores.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define el modelo relacional y explica por qué es importante en el diseño de bases de datos.</li>
+          <li>Explica la diferencia entre una clave primaria y una clave externa.</li>
+          <li>Describe un ejemplo de relación entre tablas en una base de datos real.</li>
+          <li>Explica por qué la normalización es importante para evitar errores en los datos.</li>
+          <li>Analiza qué problemas podrían aparecer si una base de datos escolar guardara toda la información en una única tabla.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es el modelo relacional?</li>
+          <li>¿Para qué sirve una clave primaria?</li>
+          <li>¿Qué función tiene una clave externa?</li>
+          <li>¿Qué problema intenta resolver la normalización?</li>
+          <li>¿Por qué no conviene repetir la misma información en muchas filas?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es un modelo que organiza los datos en tablas relacionadas entre sí.</li>
+          <li>Sirve para identificar de forma única cada registro de una tabla.</li>
+          <li>Permite relacionar datos entre diferentes tablas.</li>
+          <li>Evita duplicación de datos y mejora la consistencia de la información.</li>
+          <li>Porque aumenta la redundancia, complica las actualizaciones y puede generar inconsistencias.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="a3_1.html" style="color:#102a43;border-color:#9fb5d9;">← A3.1</a>
+        <a class="btn btn-primary" href="a3_3.html">A3.3 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
