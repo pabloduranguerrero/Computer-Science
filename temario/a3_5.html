@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A3.5 Administración, diseño y transacciones en bases de datos | Temario NM</title>
+  <meta name="description" content="A3.5 de informática IB nivel medio: administrador de bases de datos, diseño conceptual, diseño lógico, diseño físico, transacciones y propiedades ACID con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / A3.5
+      </div>
+
+      <p class="kicker">Temario NM · A3.5</p>
+      <h2>A3.5 Administración, diseño y transacciones en bases de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se organiza, diseña, administra y protege una base de datos para que funcione de manera correcta, eficiente y segura en un sistema informático real?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>Cuando hablamos de bases de datos, muchas veces pensamos solo en tablas, registros, campos o consultas SQL. Sin embargo, una base de datos real implica mucho más que almacenar información. Detrás de cualquier sistema bien construido hay personas, procesos y decisiones técnicas que permiten que los datos estén organizados, protegidos y disponibles cuando se necesitan.</p>
+        <p>Por ejemplo, un hospital, una tienda online o una plataforma educativa no solo necesitan guardar datos. También necesitan:</p>
+        <ul>
+          <li>diseñar correctamente la estructura de la base de datos</li>
+          <li>decidir cómo se relacionan los datos</li>
+          <li>mantener la seguridad de la información</li>
+          <li>asegurar que varios usuarios puedan trabajar al mismo tiempo sin provocar errores</li>
+          <li>proteger la base de datos frente a fallos o pérdidas de información</li>
+        </ul>
+        <p>En este contexto aparecen varias ideas fundamentales:</p>
+        <ul>
+          <li>el <strong>administrador de bases de datos</strong></li>
+          <li>el <strong>diseño conceptual</strong></li>
+          <li>el <strong>diseño lógico</strong></li>
+          <li>el <strong>diseño físico</strong></li>
+          <li>las <strong>transacciones</strong></li>
+          <li>las <strong>propiedades ACID</strong></li>
+        </ul>
+        <p>Todos estos conceptos forman parte de la gestión real de las bases de datos y son esenciales para comprender cómo funcionan los sistemas informáticos en el mundo profesional.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>1. El administrador de bases de datos</h4>
+
+        <h5>¿Qué es un administrador de bases de datos?</h5>
+        <p>El <strong>administrador de bases de datos</strong>, conocido también como <strong>DBA</strong> por sus siglas en inglés (<em>Database Administrator</em>), es la persona o perfil técnico responsable de gestionar, mantener, proteger y supervisar una base de datos.</p>
+        <p>No se encarga solo de “guardar datos”, sino de asegurar que la base de datos funcione correctamente, sea segura y esté disponible cuando los usuarios o aplicaciones la necesiten.</p>
+        <p>En sistemas pequeños, una misma persona puede realizar varias funciones al mismo tiempo. En sistemas grandes, el rol del administrador de bases de datos suele ser muy importante y especializado.</p>
+
+        <h5>Idea clave</h5>
+        <p>El DBA no diseña únicamente tablas. Su trabajo consiste en garantizar que la base de datos sea:</p>
+        <ul>
+          <li>estable</li>
+          <li>segura</li>
+          <li>eficiente</li>
+          <li>recuperable en caso de fallo</li>
+          <li>accesible para quienes deben usarla</li>
+        </ul>
+
+        <h5>Ejemplo real</h5>
+        <p>Imagina la base de datos de un hospital. En ella se almacenan:</p>
+        <ul>
+          <li>pacientes</li>
+          <li>citas</li>
+          <li>historiales médicos</li>
+          <li>tratamientos</li>
+          <li>resultados de pruebas</li>
+        </ul>
+        <p>Si la base de datos falla, los médicos podrían perder acceso a información crítica. Si no está bien protegida, podrían filtrarse datos sensibles. Si no está bien mantenida, el sistema podría volverse lento o inestable. Ahí es donde entra la figura del administrador de bases de datos.</p>
+
+        <h5>Funciones del administrador de bases de datos</h5>
+        <p>El trabajo de un DBA puede incluir muchas tareas. Las más importantes son estas:</p>
+
+        <p><strong>1. Instalación y configuración del sistema gestor de bases de datos</strong></p>
+        <p>El DBA se encarga de instalar y configurar el sistema gestor de bases de datos, como por ejemplo:</p>
+        <ul>
+          <li>MySQL</li>
+          <li>PostgreSQL</li>
+          <li>Oracle</li>
+          <li>SQL Server</li>
+        </ul>
+        <p>Esto implica dejar preparado el entorno para que la base de datos pueda funcionar correctamente.</p>
+
+        <p><strong>2. Gestión de usuarios y permisos</strong></p>
+        <p>No todas las personas deben poder hacer lo mismo dentro de una base de datos.</p>
+        <p>Por ejemplo:</p>
+        <ul>
+          <li>un profesor puede consultar notas</li>
+          <li>un alumno quizá solo puede ver sus propias calificaciones</li>
+          <li>el personal administrativo puede modificar matrículas</li>
+          <li>el administrador tiene acceso completo</li>
+        </ul>
+        <p>El DBA define qué usuarios existen y qué permisos tiene cada uno.</p>
+
+        <p><strong>3. Seguridad de la base de datos</strong></p>
+        <p>Una base de datos debe protegerse frente a:</p>
+        <ul>
+          <li>accesos no autorizados</li>
+          <li>modificaciones indebidas</li>
+          <li>pérdida de información</li>
+          <li>ataques externos</li>
+        </ul>
+        <p>El administrador debe aplicar medidas de seguridad para proteger los datos.</p>
+
+        <p><strong>4. Copias de seguridad y recuperación</strong></p>
+        <p>Una de las funciones más importantes del DBA es realizar <strong>copias de seguridad</strong> o <strong>backups</strong>.</p>
+        <p>Si se produce un fallo del servidor, un error humano o un ataque, estas copias permiten recuperar la información.</p>
+
+        <p><strong>5. Supervisión del rendimiento</strong></p>
+        <p>Si una base de datos funciona lentamente, toda la aplicación puede verse afectada.</p>
+        <p>El administrador analiza el rendimiento y busca mejoras para que las consultas, inserciones y actualizaciones se realicen de forma eficiente.</p>
+
+        <p><strong>6. Mantenimiento general</strong></p>
+        <p>Esto puede incluir:</p>
+        <ul>
+          <li>actualizar el sistema</li>
+          <li>revisar errores</li>
+          <li>optimizar estructuras</li>
+          <li>supervisar el uso del almacenamiento</li>
+          <li>comprobar la integridad de los datos</li>
+        </ul>
+
+        <p><strong>7. Apoyo al diseño y evolución de la base de datos</strong></p>
+        <p>En muchos casos, el DBA también participa en la mejora del diseño de la base de datos a medida que el sistema crece o cambia.</p>
+
+        <h5>Ejemplo de funciones del DBA en una plataforma educativa</h5>
+        <p>En una plataforma escolar, el administrador de bases de datos podría encargarse de:</p>
+        <ul>
+          <li>crear la base de datos del sistema</li>
+          <li>gestionar usuarios como profesorado, alumnado y administración</li>
+          <li>controlar quién puede ver o modificar las calificaciones</li>
+          <li>hacer copias de seguridad semanales</li>
+          <li>recuperar datos si se borran por error</li>
+          <li>asegurar que la plataforma siga funcionando durante los exámenes</li>
+        </ul>
+
+        <h4>2. Diseño conceptual de una base de datos</h4>
+
+        <h5>¿Qué es el diseño conceptual?</h5>
+        <p>El <strong>diseño conceptual</strong> es la primera fase importante en la construcción de una base de datos.</p>
+        <p>En esta fase no se piensa todavía en tablas concretas, tipos de datos técnicos ni comandos SQL. Lo que se hace es identificar <strong>qué información necesita el sistema</strong> y cómo se relacionan los elementos principales.</p>
+        <p>Es una visión general y abstracta de la base de datos.</p>
+
+        <h5>Objetivo del diseño conceptual</h5>
+        <p>El objetivo es responder preguntas como:</p>
+        <ul>
+          <li>¿Qué entidades existen en el sistema?</li>
+          <li>¿Qué información importante debe guardarse?</li>
+          <li>¿Cómo se relacionan esas entidades?</li>
+        </ul>
+
+        <h5>Entidades</h5>
+        <p>Una <strong>entidad</strong> es un objeto, elemento o concepto sobre el que queremos almacenar información.</p>
+        <p>Ejemplos de entidades:</p>
+        <ul>
+          <li>Alumno</li>
+          <li>Profesor</li>
+          <li>Curso</li>
+          <li>Asignatura</li>
+          <li>Pedido</li>
+          <li>Cliente</li>
+          <li>Producto</li>
+        </ul>
+
+        <h5>Relaciones</h5>
+        <p>Las entidades suelen estar conectadas entre sí.</p>
+        <p>Por ejemplo:</p>
+        <ul>
+          <li>un alumno se matricula en un curso</li>
+          <li>un profesor imparte una asignatura</li>
+          <li>un cliente realiza pedidos</li>
+        </ul>
+        <p>Estas conexiones se representan mediante <strong>relaciones</strong>.</p>
+
+        <h5>Ejemplo conceptual: biblioteca</h5>
+        <p>Supongamos que queremos diseñar una base de datos para una biblioteca.</p>
+        <p>Podríamos identificar estas entidades:</p>
+        <ul>
+          <li>Libro</li>
+          <li>Usuario</li>
+          <li>Préstamo</li>
+        </ul>
+        <p>Y estas relaciones:</p>
+        <ul>
+          <li>un usuario puede realizar préstamos</li>
+          <li>un préstamo corresponde a un libro</li>
+          <li>un préstamo está asociado a un usuario</li>
+        </ul>
+
+        <h5>Herramienta habitual: diagrama entidad-relación</h5>
+        <p>El diseño conceptual suele representarse mediante un <strong>diagrama entidad-relación</strong>.</p>
+        <p>Este diagrama muestra:</p>
+        <ul>
+          <li>entidades</li>
+          <li>atributos principales</li>
+          <li>relaciones entre entidades</li>
+        </ul>
+        <p>No entra aún en detalles técnicos del sistema gestor.</p>
+
+        <h5>Importancia del diseño conceptual</h5>
+        <p>El diseño conceptual es importante porque permite entender el sistema antes de construirlo.</p>
+        <p>Si esta fase se hace mal, después pueden aparecer problemas como:</p>
+        <ul>
+          <li>falta de información relevante</li>
+          <li>relaciones incorrectas</li>
+          <li>diseño poco claro</li>
+          <li>dificultades para ampliar el sistema</li>
+        </ul>
+
+        <h4>3. Diseño lógico de una base de datos</h4>
+
+        <h5>¿Qué es el diseño lógico?</h5>
+        <p>El <strong>diseño lógico</strong> transforma el diseño conceptual en una estructura más cercana a la implementación real.</p>
+        <p>Aquí ya se empieza a pensar en:</p>
+        <ul>
+          <li>tablas</li>
+          <li>campos</li>
+          <li>claves primarias</li>
+          <li>claves externas</li>
+          <li>relaciones entre tablas</li>
+        </ul>
+        <p>Sin embargo, todavía no se entra en detalles físicos de almacenamiento.</p>
+
+        <h5>Objetivo del diseño lógico</h5>
+        <p>El objetivo es convertir las ideas generales del diseño conceptual en una estructura organizada que pueda implementarse en un sistema relacional.</p>
+
+        <h5>Ejemplo</h5>
+        <p>Siguiendo con la biblioteca:</p>
+        <p><strong>Diseño conceptual</strong></p>
+        <p>Entidades:</p>
+        <ul>
+          <li>Libro</li>
+          <li>Usuario</li>
+          <li>Préstamo</li>
+        </ul>
+
+        <p><strong>Diseño lógico</strong></p>
+        <p>Tablas:</p>
+        <ul>
+          <li>Libros</li>
+          <li>Usuarios</li>
+          <li>Prestamos</li>
+        </ul>
+
+        <p><strong>Tabla Libros</strong></p>
+        <ul>
+          <li>ID_libro</li>
+          <li>titulo</li>
+          <li>autor</li>
+        </ul>
+
+        <p><strong>Tabla Usuarios</strong></p>
+        <ul>
+          <li>ID_usuario</li>
+          <li>nombre</li>
+          <li>email</li>
+        </ul>
+
+        <p><strong>Tabla Prestamos</strong></p>
+        <ul>
+          <li>ID_prestamo</li>
+          <li>ID_usuario</li>
+          <li>ID_libro</li>
+          <li>fecha_prestamo</li>
+          <li>fecha_devolucion</li>
+        </ul>
+
+        <p>Aquí ya aparecen claramente:</p>
+        <ul>
+          <li>claves primarias</li>
+          <li>claves externas</li>
+          <li>relaciones</li>
+        </ul>
+
+        <h5>Relación con la normalización</h5>
+        <p>En el diseño lógico también es muy importante revisar la normalización para evitar:</p>
+        <ul>
+          <li>redundancias</li>
+          <li>inconsistencias</li>
+          <li>problemas de actualización</li>
+        </ul>
+
+        <h5>Importancia del diseño lógico</h5>
+        <p>El diseño lógico sirve para construir una base de datos coherente y bien estructurada antes de implementarla físicamente.</p>
+        <p>Si esta etapa está bien hecha, será mucho más fácil:</p>
+        <ul>
+          <li>crear las tablas</li>
+          <li>hacer consultas</li>
+          <li>mantener la integridad de los datos</li>
+          <li>ampliar la base de datos en el futuro</li>
+        </ul>
+
+        <h4>4. Diseño físico de una base de datos</h4>
+
+        <h5>¿Qué es el diseño físico?</h5>
+        <p>El <strong>diseño físico</strong> es la fase en la que la base de datos se concreta técnicamente dentro de un sistema gestor real.</p>
+        <p>Aquí ya no solo pensamos en qué tablas habrá, sino en <strong>cómo se almacenarán físicamente los datos</strong>.</p>
+
+        <h5>Aspectos del diseño físico</h5>
+        <p>El diseño físico incluye decisiones como:</p>
+        <ul>
+          <li>tipo exacto de datos de cada campo</li>
+          <li>tamaño de los campos</li>
+          <li>índices</li>
+          <li>organización del almacenamiento</li>
+          <li>particionado</li>
+          <li>rendimiento</li>
+          <li>acceso físico a los datos</li>
+        </ul>
+
+        <h5>Ejemplo</h5>
+        <p>En el diseño lógico habíamos decidido que existe un campo <code>nombre</code> en la tabla Usuarios.</p>
+        <p>En el diseño físico ya tendríamos que decidir cosas como:</p>
+        <ul>
+          <li>si será <code>VARCHAR(100)</code></li>
+          <li>si puede ser nulo o no</li>
+          <li>si debe tener índice</li>
+          <li>cómo se almacenará en disco</li>
+        </ul>
+
+        <h5>Índices</h5>
+        <p>Un índice es una estructura que acelera las búsquedas dentro de la base de datos.</p>
+        <p>Por ejemplo, si buscamos constantemente usuarios por email, podría ser útil crear un índice sobre ese campo.</p>
+        <p>Eso mejora el rendimiento, aunque también puede aumentar el coste de ciertas operaciones de escritura.</p>
+
+        <h5>Importancia del diseño físico</h5>
+        <p>El diseño físico influye mucho en:</p>
+        <ul>
+          <li>velocidad de las consultas</li>
+          <li>uso del espacio</li>
+          <li>eficiencia general del sistema</li>
+          <li>escalabilidad de la base de datos</li>
+        </ul>
+        <p>Un mal diseño físico puede hacer que una base de datos funcione lentamente aunque su diseño conceptual y lógico sean correctos.</p>
+
+        <h4>5. Diferencia entre diseño conceptual, lógico y físico</h4>
+        <p>Es muy importante que el alumnado entienda bien la diferencia entre estas tres fases.</p>
+
+        <p><strong>Diseño conceptual</strong></p>
+        <p>Se centra en <strong>qué información existe</strong> y <strong>cómo se relaciona</strong>, sin entrar en detalles técnicos.</p>
+
+        <p><strong>Diseño lógico</strong></p>
+        <p>Se centra en <strong>cómo organizar esa información en tablas y relaciones</strong>.</p>
+
+        <p><strong>Diseño físico</strong></p>
+        <p>Se centra en <strong>cómo implementar realmente esa estructura en el sistema gestor</strong>, teniendo en cuenta almacenamiento y rendimiento.</p>
+
+        <h5>Resumen sencillo</h5>
+        <ul>
+          <li><strong>Conceptual</strong> = idea general del sistema</li>
+          <li><strong>Lógico</strong> = estructura de tablas y relaciones</li>
+          <li><strong>Físico</strong> = implementación técnica real</li>
+        </ul>
+
+        <h4>6. Las transacciones</h4>
+
+        <h5>¿Qué es una transacción?</h5>
+        <p>Una <strong>transacción</strong> es un conjunto de operaciones sobre la base de datos que deben ejecutarse como una única unidad lógica.</p>
+        <p>Esto significa que todas esas operaciones deben completarse correctamente o, si algo falla, no debe aplicarse ninguna.</p>
+
+        <h5>Idea clave</h5>
+        <p>Una transacción asegura que la base de datos no quede en un estado incorrecto o incompleto.</p>
+
+        <h5>Ejemplo clásico: transferencia bancaria</h5>
+        <p>Imagina una transferencia de 100 euros desde la cuenta A a la cuenta B.</p>
+        <p>La operación implica al menos dos acciones:</p>
+        <ol>
+          <li>restar 100 euros de la cuenta A</li>
+          <li>sumar 100 euros a la cuenta B</li>
+        </ol>
+        <p>Estas dos acciones deben formar parte de una misma transacción.</p>
+
+        <h5>¿Qué pasaría si falla la segunda?</h5>
+        <p>Si se resta el dinero de A pero no se suma a B, la base de datos quedaría en un estado incorrecto.</p>
+        <p>Por eso ambas operaciones deben tratarse como una sola unidad.</p>
+
+        <h5>Ejemplo cotidiano</h5>
+        <p>Supongamos una tienda online donde una compra implica:</p>
+        <ol>
+          <li>registrar el pedido</li>
+          <li>descontar stock</li>
+          <li>registrar el pago</li>
+        </ol>
+        <p>Si solo se registra el pedido pero no se actualiza el stock, o si el pago falla y aun así se crea el pedido, el sistema quedaría inconsistente.</p>
+        <p>Una transacción evita este problema.</p>
+
+        <h5>Inicio, confirmación y reversión</h5>
+        <p>En muchos sistemas, una transacción suele seguir esta lógica:</p>
+        <ul>
+          <li><strong>BEGIN</strong> o inicio de transacción</li>
+          <li>ejecución de operaciones</li>
+          <li><strong>COMMIT</strong> si todo sale bien</li>
+          <li><strong>ROLLBACK</strong> si algo falla</li>
+        </ul>
+
+        <p><strong>COMMIT</strong></p>
+        <p>Confirma definitivamente los cambios.</p>
+
+        <p><strong>ROLLBACK</strong></p>
+        <p>Deshace los cambios realizados durante la transacción.</p>
+
+        <h4>7. Propiedades ACID de las transacciones</h4>
+        <p>Las transacciones en bases de datos suelen cumplir las llamadas <strong>propiedades ACID</strong>. Estas propiedades garantizan que las operaciones se realicen de forma segura y fiable.</p>
+        <p>ACID significa:</p>
+        <ul>
+          <li><strong>Atomicity</strong> (atomicidad)</li>
+          <li><strong>Consistency</strong> (consistencia)</li>
+          <li><strong>Isolation</strong> (aislamiento)</li>
+          <li><strong>Durability</strong> (durabilidad)</li>
+        </ul>
+
+        <h5>7.1 Atomicidad</h5>
+        <p>La <strong>atomicidad</strong> significa que una transacción se ejecuta <strong>completamente o no se ejecuta en absoluto</strong>.</p>
+        <p>No puede quedarse “a medias”.</p>
+
+        <h6>Ejemplo</h6>
+        <p>En una transferencia bancaria:</p>
+        <ul>
+          <li>o se resta dinero de una cuenta y se suma a la otra</li>
+          <li>o no se hace ninguna de las dos cosas</li>
+        </ul>
+        <p>No se permite un estado intermedio incorrecto.</p>
+
+        <h6>Idea clave</h6>
+        <p>Todo o nada.</p>
+
+        <h5>7.2 Consistencia</h5>
+        <p>La <strong>consistencia</strong> significa que la transacción lleva la base de datos de un estado válido a otro estado válido.</p>
+        <p>Es decir, después de la transacción, las reglas del sistema deben seguir cumpliéndose.</p>
+
+        <h6>Ejemplo</h6>
+        <p>Si en una base de datos bancaria no se permiten saldos imposibles o cuentas inexistentes, una transacción no debe romper esas reglas.</p>
+
+        <h6>Otro ejemplo</h6>
+        <p>Si un préstamo debe asociarse siempre a un usuario y a un libro válidos, una transacción no debe crear un préstamo con referencias incorrectas.</p>
+
+        <h6>Idea clave</h6>
+        <p>La base de datos debe seguir siendo coherente antes y después de la transacción.</p>
+
+        <h5>7.3 Aislamiento</h5>
+        <p>El <strong>aislamiento</strong> significa que varias transacciones que ocurren al mismo tiempo no deben interferirse de forma incorrecta.</p>
+        <p>Cada transacción debe comportarse como si fuera la única que se está ejecutando, al menos desde el punto de vista lógico.</p>
+
+        <h6>Ejemplo</h6>
+        <p>Dos personas compran el último producto disponible casi al mismo tiempo.</p>
+        <p>Si la base de datos no maneja bien el aislamiento, ambas operaciones podrían pensar que el producto sigue disponible.</p>
+
+        <h6>Idea clave</h6>
+        <p>Las transacciones concurrentes no deben provocar resultados erróneos.</p>
+
+        <h5>7.4 Durabilidad</h5>
+        <p>La <strong>durabilidad</strong> significa que, una vez que una transacción ha sido confirmada con éxito, sus cambios deben permanecer guardados incluso si ocurre un fallo posterior.</p>
+
+        <h6>Ejemplo</h6>
+        <p>Si un pago ya ha sido confirmado y después se apaga el servidor, la información de ese pago no debe perderse.</p>
+
+        <h6>Idea clave</h6>
+        <p>Lo que ya fue confirmado debe mantenerse.</p>
+
+        <h4>8. Ejemplo completo de ACID</h4>
+        <p>Supongamos una compra online con una sola unidad disponible de un producto.</p>
+        <p>La transacción incluye:</p>
+        <ol>
+          <li>comprobar stock</li>
+          <li>registrar pedido</li>
+          <li>descontar stock</li>
+          <li>confirmar compra</li>
+        </ol>
+
+        <p><strong>Atomicidad</strong></p>
+        <p>Si falla el descuento de stock, toda la operación se revierte.</p>
+
+        <p><strong>Consistencia</strong></p>
+        <p>Después de la compra, el stock no puede quedar en un valor inválido.</p>
+
+        <p><strong>Aislamiento</strong></p>
+        <p>Si dos personas compran a la vez, el sistema debe evitar vender dos veces la misma unidad.</p>
+
+        <p><strong>Durabilidad</strong></p>
+        <p>Una vez confirmada la compra, el pedido debe seguir registrado aunque falle el sistema.</p>
+
+        <h4>9. Importancia de las transacciones en sistemas reales</h4>
+        <p>Las transacciones son esenciales en sistemas donde los datos son críticos, por ejemplo:</p>
+        <ul>
+          <li>bancos</li>
+          <li>hospitales</li>
+          <li>comercio electrónico</li>
+          <li>reservas de viajes</li>
+          <li>plataformas educativas</li>
+          <li>sistemas administrativos</li>
+        </ul>
+        <p>En todos estos casos, un error parcial puede tener consecuencias graves.</p>
+
+        <h4>10. Ejemplo integrado: universidad</h4>
+        <p>Imaginemos un sistema universitario.</p>
+
+        <p><strong>El DBA</strong></p>
+        <p>Se encarga de:</p>
+        <ul>
+          <li>gestionar usuarios</li>
+          <li>hacer backups</li>
+          <li>controlar accesos</li>
+          <li>mantener el sistema</li>
+        </ul>
+
+        <p><strong>Diseño conceptual</strong></p>
+        <p>Se identifican entidades como:</p>
+        <ul>
+          <li>Alumno</li>
+          <li>Asignatura</li>
+          <li>Matrícula</li>
+          <li>Profesor</li>
+        </ul>
+
+        <p><strong>Diseño lógico</strong></p>
+        <p>Se crean tablas:</p>
+        <ul>
+          <li>Alumnos</li>
+          <li>Asignaturas</li>
+          <li>Matriculas</li>
+          <li>Profesores</li>
+        </ul>
+
+        <p><strong>Diseño físico</strong></p>
+        <p>Se definen:</p>
+        <ul>
+          <li>tipos de campos</li>
+          <li>índices</li>
+          <li>restricciones</li>
+          <li>configuración del almacenamiento</li>
+        </ul>
+
+        <p><strong>Transacciones</strong></p>
+        <p>Una matrícula puede implicar:</p>
+        <ol>
+          <li>registrar la matrícula</li>
+          <li>actualizar el número de plazas disponibles</li>
+          <li>generar recibo</li>
+        </ol>
+        <p>Si algo falla, se deshace toda la operación.</p>
+
+        <p><strong>Propiedades ACID</strong></p>
+        <p>Garantizan que esa matrícula no deje el sistema en estado incorrecto.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>DBA:</strong> administrador de bases de datos responsable de la gestión, seguridad y mantenimiento del sistema.</li>
+          <li><strong>Diseño conceptual:</strong> fase en la que se identifican entidades, atributos y relaciones de forma general.</li>
+          <li><strong>Diseño lógico:</strong> fase en la que se organizan tablas, claves y relaciones.</li>
+          <li><strong>Diseño físico:</strong> implementación técnica real de la base de datos en el sistema gestor.</li>
+          <li><strong>Transacción:</strong> conjunto de operaciones que debe ejecutarse como una sola unidad lógica.</li>
+          <li><strong>COMMIT:</strong> confirmación definitiva de los cambios de una transacción.</li>
+          <li><strong>ROLLBACK:</strong> reversión de los cambios cuando ocurre un fallo.</li>
+          <li><strong>ACID:</strong> conjunto de propiedades que garantizan transacciones seguras y fiables.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos una plataforma universitaria donde un estudiante se matricula en una asignatura.</p>
+        <p>El proceso puede incluir:</p>
+        <ol>
+          <li>comprobar si quedan plazas disponibles</li>
+          <li>registrar la matrícula del alumno</li>
+          <li>actualizar el número de plazas restantes</li>
+          <li>generar un justificante</li>
+        </ol>
+        <p>Estas operaciones forman una <strong>transacción</strong>, porque si falla una de ellas, no debe quedar el sistema en un estado incoherente.</p>
+        <p>Además:</p>
+        <ul>
+          <li>el <strong>DBA</strong> se encarga de que la base de datos esté disponible y protegida</li>
+          <li>el <strong>diseño conceptual</strong> identifica entidades como Alumno, Asignatura y Matrícula</li>
+          <li>el <strong>diseño lógico</strong> organiza tablas como Alumnos, Asignaturas y Matriculas</li>
+          <li>el <strong>diseño físico</strong> concreta tipos de campos, índices y almacenamiento</li>
+          <li>las propiedades <strong>ACID</strong> garantizan que la matrícula se procese correctamente</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Bancos:</strong> transferencias, pagos y movimientos de cuentas dependen de transacciones seguras.</li>
+          <li><strong>Hospitales:</strong> historiales clínicos, citas y tratamientos requieren acceso controlado y consistencia.</li>
+          <li><strong>Comercio electrónico:</strong> pedidos, stock y pagos deben coordinarse sin errores.</li>
+          <li><strong>Plataformas educativas:</strong> matrículas, calificaciones y usuarios necesitan una gestión fiable.</li>
+          <li><strong>Sistemas administrativos:</strong> expedientes, permisos y registros requieren seguridad y trazabilidad.</li>
+        </ul>
+        <p>En todos estos casos, el buen diseño y la administración correcta de la base de datos resultan esenciales.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir DBA con programador:</strong> el administrador de bases de datos no se limita a programar consultas; gestiona seguridad, copias, rendimiento y mantenimiento.</li>
+          <li><strong>Confundir diseño conceptual con diseño lógico:</strong> el conceptual identifica entidades y relaciones; el lógico ya organiza tablas y claves.</li>
+          <li><strong>Pensar que el diseño físico es solo “guardar archivos”:</strong> en realidad incluye decisiones técnicas que afectan al rendimiento y al almacenamiento real.</li>
+          <li><strong>Creer que una transacción es una sola consulta:</strong> una transacción puede incluir varias operaciones que deben ejecutarse juntas.</li>
+          <li><strong>Memorizar ACID sin entenderlo:</strong> lo importante no es solo recordar las siglas, sino comprender qué problema resuelve cada propiedad.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>A3.1 Fundamentos de bases de datos:</strong> aquí se introduce la idea general de base de datos, tablas, campos y registros.</li>
+          <li><strong>A3.2 Diseño de bases de datos:</strong> el diseño conceptual, lógico y físico amplía esta parte con una visión más completa del proceso.</li>
+          <li><strong>A3.3 Programación de bases de datos:</strong> las transacciones y el trabajo real con bases de datos se relacionan con las consultas SQL y la manipulación de datos.</li>
+          <li><strong>A3.4 Normalización:</strong> el diseño lógico se apoya mucho en una buena normalización para evitar redundancias e inconsistencias.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>El <strong>administrador de bases de datos (DBA)</strong> se encarga de gestionar, proteger y mantener la base de datos.</li>
+          <li>Sus funciones incluyen seguridad, copias de seguridad, permisos, rendimiento y mantenimiento.</li>
+          <li>El <strong>diseño conceptual</strong> identifica entidades y relaciones.</li>
+          <li>El <strong>diseño lógico</strong> transforma esa visión en tablas, claves y relaciones estructuradas.</li>
+          <li>El <strong>diseño físico</strong> concreta la implementación técnica real en el sistema gestor.</li>
+          <li>Una <strong>transacción</strong> es un conjunto de operaciones que deben ejecutarse como una sola unidad.</li>
+          <li>Las propiedades <strong>ACID</strong> garantizan fiabilidad:</li>
+          <li><strong>Atomicidad</strong>: todo o nada</li>
+          <li><strong>Consistencia</strong>: la base de datos sigue siendo válida</li>
+          <li><strong>Aislamiento</strong>: las transacciones no interfieren incorrectamente entre sí</li>
+          <li><strong>Durabilidad</strong>: los cambios confirmados permanecen</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es un administrador de bases de datos y explica sus principales funciones.</li>
+          <li>Explica la diferencia entre diseño conceptual, diseño lógico y diseño físico de una base de datos.</li>
+          <li>Describe qué es una transacción y por qué es importante en sistemas reales.</li>
+          <li>Explica las propiedades ACID con ejemplos claros.</li>
+          <li>Analiza por qué una transferencia bancaria es un buen ejemplo para explicar transacciones.</li>
+          <li>Explica cómo se relacionan el diseño de bases de datos y la consistencia de la información.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué significa DBA?</li>
+          <li>¿Qué se define en el diseño conceptual?</li>
+          <li>¿Qué diferencia hay entre diseño lógico y físico?</li>
+          <li>¿Qué es una transacción?</li>
+          <li>¿Qué significa la atomicidad?</li>
+          <li>¿Qué significa la durabilidad?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Database Administrator, es decir, administrador de bases de datos.</li>
+          <li>Se identifican entidades, relaciones y la información general del sistema.</li>
+          <li>El diseño lógico organiza tablas y relaciones; el físico concreta la implementación técnica real.</li>
+          <li>Es un conjunto de operaciones que deben ejecutarse como una sola unidad lógica.</li>
+          <li>Que una transacción se ejecuta completamente o no se ejecuta.</li>
+          <li>Que una vez confirmados los cambios, estos deben mantenerse incluso si ocurre un fallo posterior.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="a3_4.html" style="color:#102a43;border-color:#9fb5d9;">← A3.4</a>
+        <a class="btn btn-primary" href="a4_1.html">A4.1 →</a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+<div class="container">
+<p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+<p>© 2026 Pablo Durán Guerrero. Todos los derechos reservados. Queda prohibida la reproducción, distribución o modificación total o parcial de este contenido sin autorización expresa por escrito.</p>
+<p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+</div>
+</footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
