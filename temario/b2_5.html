@@ -1,21 +1,504 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>B2.5 Procesamiento de archivos | Temario NM</title><meta name="description" content="B2.5 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.5</div>
-<p class="kicker">Temario NM · B2.5</p><h2>B2.5 Procesamiento de archivos</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo conservar datos entre ejecuciones mediante archivos?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>El procesamiento de archivos permite persistir datos más allá de la ejecución actual.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Leer archivos recupera información existente; escribir archivos guarda resultados o nuevos registros. El modo de apertura (lectura/escritura/anexado) es decisivo.</p><p>Debe controlarse la validación de formato y el manejo de errores para evitar pérdida o corrupción de datos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Lectura de archivos</li><li>Escritura de archivos</li><li>Persistencia</li><li>Manejo de errores</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Leer notas desde archivo CSV, calcular estadísticas y guardar informe en un nuevo archivo.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Logs, reportes, exportaciones, configuración de aplicaciones.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Sobrescribir datos por modo incorrecto; no tratar archivos inexistentes.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>B2.1 (entrada/salida), A3 (almacenamiento estructurado), B2.4 (algoritmos de procesamiento).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Los archivos aportan persistencia.</li><li>Leer y escribir requiere control técnico.</li><li>La validación evita errores críticos.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="b2_4.html" style="color:#102a43;border-color:#9fb5d9;">← B2.4</a><a class="btn btn-primary" href="b3_1.html">B3.1 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2.5 Procesamiento de archivos | Temario NM</title>
+  <meta name="description" content="B2.5 de informática IB nivel medio: procesamiento de archivos, lectura, escritura y almacenamiento de datos con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.5
+      </div>
+
+      <p class="kicker">Temario NM · B2.5</p>
+      <h2>B2.5 Procesamiento de archivos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo pueden los programas leer, escribir y almacenar información en archivos para conservar datos más allá de una sola ejecución?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>En los temas anteriores hemos trabajado con variables, estructuras de datos, algoritmos y estructuras de control. Sin embargo, existe una limitación importante en muchos programas sencillos: la información solo permanece disponible mientras el programa está en ejecución. Cuando el programa termina, los datos almacenados en memoria se pierden.</p>
+        <p>Esto puede ser suficiente en ejercicios muy simples, pero no en aplicaciones reales. Por ejemplo, una aplicación puede necesitar:</p>
+        <ul>
+          <li>guardar las notas de los estudiantes</li>
+          <li>almacenar una lista de tareas</li>
+          <li>registrar usuarios</li>
+          <li>leer datos previamente guardados</li>
+          <li>generar informes o listados</li>
+        </ul>
+        <p>Para resolver este problema, los programas utilizan <strong>archivos</strong>. Un archivo permite almacenar información de manera permanente en un dispositivo de almacenamiento, como el disco duro o la memoria del ordenador.</p>
+        <p>El <strong>procesamiento de archivos</strong> consiste en trabajar con esos datos almacenados: abrir archivos, leer su contenido, escribir información nueva, modificarla o utilizarla dentro del programa.</p>
+        <p>En este tema estudiaremos:</p>
+        <ul>
+          <li>qué es un archivo en informática</li>
+          <li>por qué es útil trabajar con archivos</li>
+          <li>cómo se realiza la <strong>lectura de archivos</strong></li>
+          <li>cómo se realiza la <strong>escritura de archivos</strong></li>
+          <li>cómo se relaciona el procesamiento de archivos con el <strong>almacenamiento de datos</strong></li>
+        </ul>
+        <p>El objetivo es que el alumnado comprenda cómo los programas pueden conservar información más allá de la ejecución inmediata y cómo esto amplía enormemente sus posibilidades.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>¿Qué es un archivo?</h4>
+        <p>Un <strong>archivo</strong> es una unidad de información almacenada de manera permanente en un dispositivo. En términos sencillos, un archivo es un conjunto de datos guardado con un nombre y un formato determinado.</p>
+        <p>Ejemplos cotidianos de archivos son:</p>
+        <ul>
+          <li>un documento de texto</li>
+          <li>una imagen</li>
+          <li>una hoja de cálculo</li>
+          <li>un archivo de audio</li>
+          <li>un archivo de datos generado por un programa</li>
+        </ul>
+        <p>En programación, muchas veces trabajamos con archivos de texto o archivos de datos sencillos que contienen información organizada para ser leída o modificada por el programa.</p>
+
+        <h5>Idea clave</h5>
+        <p>La gran diferencia entre una variable y un archivo es que:</p>
+        <ul>
+          <li>la <strong>variable</strong> almacena información temporalmente durante la ejecución del programa</li>
+          <li>el <strong>archivo</strong> almacena información de forma persistente, incluso después de cerrar el programa</li>
+        </ul>
+
+        <h4>¿Por qué es importante el procesamiento de archivos?</h4>
+        <p>El procesamiento de archivos es importante porque permite que un programa:</p>
+        <ul>
+          <li>recupere datos guardados anteriormente</li>
+          <li>conserve información entre distintas ejecuciones</li>
+          <li>genere registros o informes</li>
+          <li>trabaje con grandes cantidades de datos sin introducirlos manualmente cada vez</li>
+          <li>almacene resultados para utilizarlos más adelante</li>
+        </ul>
+        <p>Sin archivos, muchos programas serían poco útiles en la práctica, porque siempre comenzarían desde cero.</p>
+
+        <h5>Ejemplo</h5>
+        <p>Imagina un programa que permite guardar las notas de una clase. Si las notas solo se almacenan en variables, al cerrar el programa se perderán. Si en cambio se guardan en un archivo, podrán recuperarse más tarde.</p>
+
+        <h4>Lectura de archivos</h4>
+        <p>La <strong>lectura de archivos</strong> consiste en abrir un archivo existente y obtener la información almacenada en él para que el programa pueda utilizarla.</p>
+        <p>Por ejemplo, un programa puede leer:</p>
+        <ul>
+          <li>una lista de nombres</li>
+          <li>un conjunto de calificaciones</li>
+          <li>una serie de números</li>
+          <li>datos de configuración</li>
+        </ul>
+
+        <h5>Proceso general de lectura</h5>
+        <ol>
+          <li>abrir el archivo</li>
+          <li>leer su contenido</li>
+          <li>cerrar el archivo</li>
+        </ol>
+
+        <h5>Ejemplo conceptual</h5>
+        <p>Supongamos que existe un archivo llamado <code>notas.txt</code> con el contenido:</p>
+        <pre><code>7
+8
+6
+9
+5</code></pre>
+
+        <p>Un programa podría leer ese archivo para recuperar las notas y calcular la media.</p>
+
+        <h5>Ejemplo en Python</h5>
+        <pre><code>archivo = open("notas.txt", "r")
+contenido = archivo.read()
+archivo.close()
+
+print(contenido)</code></pre>
+
+        <p>En este ejemplo:</p>
+        <ul>
+          <li><code>open("notas.txt", "r")</code> abre el archivo en modo lectura</li>
+          <li><code>read()</code> lee el contenido</li>
+          <li><code>close()</code> cierra el archivo</li>
+        </ul>
+
+        <h5>Lectura línea a línea</h5>
+        <p>A veces no interesa leer todo el archivo de una vez, sino procesarlo línea por línea.</p>
+        <pre><code>archivo = open("notas.txt", "r")
+
+for linea in archivo:
+    print(linea)
+
+archivo.close()</code></pre>
+
+        <p>Esto resulta útil cuando el archivo contiene varios registros o varias filas de datos.</p>
+
+        <h5>Ventajas de leer línea a línea</h5>
+        <ul>
+          <li>permite procesar archivos grandes de forma más ordenada</li>
+          <li>facilita el tratamiento individual de cada dato</li>
+          <li>ayuda a estructurar mejor el algoritmo</li>
+        </ul>
+
+        <h4>Escritura de archivos</h4>
+        <p>La <strong>escritura de archivos</strong> consiste en guardar información en un archivo. Esto permite que los datos queden almacenados de forma permanente para usos posteriores.</p>
+
+        <h5>Proceso general de escritura</h5>
+        <ol>
+          <li>abrir el archivo en modo escritura</li>
+          <li>escribir la información</li>
+          <li>cerrar el archivo</li>
+        </ol>
+
+        <h5>Ejemplo</h5>
+        <pre><code>archivo = open("mensaje.txt", "w")
+archivo.write("Hola, mundo")
+archivo.close()</code></pre>
+
+        <p>Este programa crea un archivo llamado <code>mensaje.txt</code> y escribe dentro el texto <code>Hola, mundo</code>.</p>
+
+        <h5>Modo escritura y sobrescritura</h5>
+        <p>Cuando un archivo se abre en modo escritura (<code>"w"</code>), normalmente su contenido anterior se reemplaza.</p>
+        <p>Esto significa que si el archivo ya tenía datos, estos pueden perderse al escribir de nuevo.</p>
+
+        <h5>Ejemplo de escritura de varias líneas</h5>
+        <pre><code>archivo = open("lista.txt", "w")
+archivo.write("Ana\n")
+archivo.write("Carlos\n")
+archivo.write("Lucía\n")
+archivo.close()</code></pre>
+
+        <p>Aquí se escriben varias líneas usando <code>\n</code> para indicar saltos de línea.</p>
+
+        <h4>Añadir información a un archivo</h4>
+        <p>En algunos casos no queremos reemplazar el contenido, sino añadir información nueva al final del archivo. Para ello se utiliza normalmente el modo de adición o <em>append</em>.</p>
+
+        <pre><code>archivo = open("lista.txt", "a")
+archivo.write("Pedro\n")
+archivo.close()</code></pre>
+
+        <p>Así se conserva lo que ya había y se añade una nueva línea.</p>
+
+        <h4>Almacenamiento de datos</h4>
+        <p>El procesamiento de archivos está directamente relacionado con el <strong>almacenamiento de datos</strong>. Almacenar datos significa guardarlos de manera que puedan recuperarse y utilizarse después.</p>
+        <p>Los archivos son una de las formas más básicas y accesibles de almacenamiento en programación. Antes de usar bases de datos más complejas, muchos programas simples guardan la información en archivos.</p>
+
+        <h5>Ejemplos de datos que pueden almacenarse en archivos</h5>
+        <ul>
+          <li>nombres de usuarios</li>
+          <li>notas de exámenes</li>
+          <li>resultados de un programa</li>
+          <li>registros de errores</li>
+          <li>listas de tareas</li>
+          <li>configuraciones personalizadas</li>
+        </ul>
+
+        <h5>Ventaja principal</h5>
+        <p>El gran valor del almacenamiento en archivos es que los datos sobreviven al cierre del programa. Esto hace posible construir aplicaciones útiles en el mundo real.</p>
+
+        <h4>Ejemplo práctico: guardar notas</h4>
+        <p>Imaginemos que queremos escribir un programa que guarde las notas de varios estudiantes en un archivo.</p>
+
+        <pre><code>archivo = open("notas.txt", "w")
+archivo.write("7\n")
+archivo.write("8\n")
+archivo.write("6\n")
+archivo.write("9\n")
+archivo.write("5\n")
+archivo.close()</code></pre>
+
+        <p>Más tarde, otro programa podría leer esas notas:</p>
+
+        <pre><code>archivo = open("notas.txt", "r")
+
+for linea in archivo:
+    print(linea)
+
+archivo.close()</code></pre>
+
+        <p>Así se ve claramente cómo un programa puede guardar y otro recuperar la información.</p>
+
+        <h4>Procesamiento de archivos y estructuras de datos</h4>
+        <p>Muchas veces, la lectura de archivos se combina con el uso de listas o arrays. Por ejemplo, un programa puede leer todas las líneas de un archivo y almacenarlas en una estructura de datos para procesarlas después.</p>
+
+        <pre><code>archivo = open("nombres.txt", "r")
+nombres = []
+
+for linea in archivo:
+    nombres.append(linea.strip())
+
+archivo.close()
+
+print(nombres)</code></pre>
+
+        <p>En este ejemplo:</p>
+        <ul>
+          <li>el archivo se lee línea a línea</li>
+          <li>cada línea se añade a una lista</li>
+          <li>después la lista puede recorrerse, ordenarse o analizarse</li>
+        </ul>
+
+        <p>Esto muestra cómo el procesamiento de archivos se conecta con otros temas del curso.</p>
+
+        <h4>Posibles problemas al trabajar con archivos</h4>
+        <p>Aunque los archivos son muy útiles, también pueden surgir dificultades:</p>
+        <ul>
+          <li>el archivo puede no existir</li>
+          <li>puede estar vacío</li>
+          <li>puede contener datos mal formateados</li>
+          <li>puede leerse o escribirse en el modo equivocado</li>
+          <li>puede olvidarse cerrar el archivo</li>
+        </ul>
+
+        <p>En programación real, estos problemas obligan a tomar precauciones adicionales. En este nivel, lo importante es entender que trabajar con archivos requiere cuidado, porque se está interactuando con datos almacenados fuera del programa.</p>
+
+        <h4>Importancia de cerrar archivos</h4>
+        <p>Cerrar un archivo después de usarlo es importante porque:</p>
+        <ul>
+          <li>libera recursos del sistema</li>
+          <li>asegura que los datos se guarden correctamente</li>
+          <li>evita problemas de acceso posterior</li>
+        </ul>
+
+        <p>Un error frecuente en principiantes es abrir archivos y no cerrarlos al terminar.</p>
+
+        <h4>Formatos sencillos de archivos</h4>
+        <p>En este nivel, normalmente se trabaja con archivos de texto porque son fáciles de leer y entender. Un archivo de texto puede contener:</p>
+        <ul>
+          <li>una lista de elementos</li>
+          <li>números separados por líneas</li>
+          <li>mensajes o frases</li>
+          <li>registros sencillos</li>
+        </ul>
+
+        <p>Más adelante, en contextos más avanzados, pueden aparecer otros formatos, pero para comprender la idea del procesamiento de archivos, el texto es suficiente y muy adecuado.</p>
+
+        <h4>Lectura, escritura y ciclo de vida de la información</h4>
+        <p>Una forma clara de entender el procesamiento de archivos es pensar en el ciclo completo de la información:</p>
+        <ol>
+          <li>un programa genera datos</li>
+          <li>los guarda en un archivo</li>
+          <li>otro momento posterior permite recuperar esos datos</li>
+          <li>el programa los procesa y genera nueva información</li>
+        </ol>
+
+        <p>Este ciclo es fundamental en muchísimas aplicaciones reales.</p>
+
+        <h4>Ejemplo integrado</h4>
+        <p>Supongamos que un profesor quiere un programa que lea las notas guardadas en un archivo, calcule la media y escriba el resultado en otro archivo.</p>
+
+        <p><strong>Archivo inicial: notas.txt</strong></p>
+        <pre><code>7
+8
+6
+9
+5</code></pre>
+
+        <p><strong>Algoritmo general</strong></p>
+        <ol>
+          <li>abrir el archivo de notas</li>
+          <li>leer cada nota</li>
+          <li>sumarlas</li>
+          <li>contar cuántas hay</li>
+          <li>calcular la media</li>
+          <li>abrir un nuevo archivo</li>
+          <li>escribir el resultado</li>
+          <li>cerrar ambos archivos</li>
+        </ol>
+
+        <p><strong>Ejemplo de código</strong></p>
+        <pre><code>archivo = open("notas.txt", "r")
+suma = 0
+contador = 0
+
+for linea in archivo:
+    nota = int(linea)
+    suma = suma + nota
+    contador = contador + 1
+
+archivo.close()
+
+media = suma / contador
+
+resultado = open("resultado.txt", "w")
+resultado.write("La media es: " + str(media))
+resultado.close()</code></pre>
+
+        <p>Este ejemplo muestra cómo el procesamiento de archivos puede combinar lectura, cálculo y escritura de resultados.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Archivo:</strong> conjunto de datos almacenado de forma permanente en un dispositivo.</li>
+          <li><strong>Procesamiento de archivos:</strong> uso de archivos para leer, escribir y almacenar información dentro de un programa.</li>
+          <li><strong>Lectura de archivos:</strong> obtención del contenido de un archivo para utilizarlo en el programa.</li>
+          <li><strong>Escritura de archivos:</strong> guardado de información en un archivo.</li>
+          <li><strong>Almacenamiento de datos:</strong> conservación de información de forma persistente.</li>
+          <li><strong>Modo lectura:</strong> apertura de un archivo para consultar su contenido.</li>
+          <li><strong>Modo escritura:</strong> apertura de un archivo para guardar contenido nuevo.</li>
+          <li><strong>Modo adición:</strong> apertura de un archivo para añadir contenido al final sin borrar lo anterior.</li>
+          <li><strong>Persistencia:</strong> capacidad de conservar datos después de cerrar el programa.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos que un programa necesita guardar los nombres de tres estudiantes en un archivo y luego leerlos para mostrarlos en pantalla.</p>
+
+        <p><strong>Escritura del archivo:</strong></p>
+        <pre><code>archivo = open("estudiantes.txt", "w")
+archivo.write("Ana\n")
+archivo.write("Carlos\n")
+archivo.write("Lucía\n")
+archivo.close()</code></pre>
+
+        <p><strong>Lectura del archivo:</strong></p>
+        <pre><code>archivo = open("estudiantes.txt", "r")
+
+for linea in archivo:
+    print(linea)
+
+archivo.close()</code></pre>
+
+        <p><strong>Qué ocurre en este ejemplo:</strong></p>
+        <ul>
+          <li>se crea un archivo y se escriben tres nombres</li>
+          <li>más tarde el mismo archivo se abre en modo lectura</li>
+          <li>sus líneas se procesan una a una</li>
+          <li>los datos almacenados permanecen disponibles incluso después de cerrar el programa</li>
+        </ul>
+
+        <p><strong>Qué conceptos aparecen:</strong></p>
+        <ul>
+          <li>archivo</li>
+          <li>escritura</li>
+          <li>lectura</li>
+          <li>persistencia de datos</li>
+          <li>almacenamiento</li>
+          <li>procesamiento línea a línea</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Plataformas educativas:</strong> guardan calificaciones, usuarios y resultados.</li>
+          <li><strong>Aplicaciones de notas:</strong> almacenan listas de tareas y recordatorios.</li>
+          <li><strong>Sistemas administrativos:</strong> generan archivos con informes y registros.</li>
+          <li><strong>Programas de sensores:</strong> registran mediciones en archivos para analizarlas después.</li>
+          <li><strong>Videojuegos:</strong> guardan partidas y puntuaciones.</li>
+        </ul>
+        <p>En todos estos casos, los archivos permiten conservar información para usarla más tarde, algo que no sería posible si los datos solo se mantuvieran en memoria.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir variable con archivo:</strong> la variable guarda datos temporalmente; el archivo los guarda de forma permanente.</li>
+          <li><strong>Olvidar cerrar el archivo:</strong> esto puede provocar errores o impedir que los datos se guarden correctamente.</li>
+          <li><strong>Abrir un archivo en el modo equivocado:</strong> por ejemplo, usar escritura cuando solo se quería leer.</li>
+          <li><strong>No entender que escribir en modo <code>"w"</code> puede borrar el contenido anterior:</strong> esto provoca pérdida de datos.</li>
+          <li><strong>Pensar que leer un archivo siempre funciona:</strong> el archivo puede no existir o tener un formato inesperado.</li>
+          <li><strong>No relacionar archivos con estructuras de datos:</strong> muchos archivos se leen para cargar sus datos en listas o arrays.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>B2.1 Fundamentos de programación:</strong> el procesamiento de archivos amplía la idea de entrada y salida de datos.</li>
+          <li><strong>B2.2 Estructuras de datos:</strong> los datos leídos de archivos suelen almacenarse en listas o arrays.</li>
+          <li><strong>B2.3 Constructos de programación:</strong> los bucles y condicionales son esenciales para procesar el contenido de los archivos.</li>
+          <li><strong>B2.4 Algoritmos de programación:</strong> leer y escribir archivos requiere algoritmos bien estructurados.</li>
+          <li><strong>A3 Bases de datos:</strong> los archivos son una forma sencilla de almacenamiento, mientras que las bases de datos son una solución más estructurada y potente.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Un <strong>archivo</strong> es una unidad de información almacenada de forma permanente.</li>
+          <li>El <strong>procesamiento de archivos</strong> permite leer, escribir y almacenar datos.</li>
+          <li>La <strong>lectura</strong> recupera información previamente guardada.</li>
+          <li>La <strong>escritura</strong> permite guardar información nueva.</li>
+          <li>Los archivos hacen posible la <strong>persistencia de datos</strong>, es decir, conservar la información tras cerrar el programa.</li>
+          <li>Trabajar con archivos amplía mucho la utilidad práctica de los programas.</li>
+          <li>El procesamiento de archivos se relaciona estrechamente con estructuras de datos, algoritmos y estructuras de control.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es un archivo en informática y explica por qué es útil en programación.</li>
+          <li>Explica la diferencia entre lectura y escritura de archivos.</li>
+          <li>Analiza por qué los archivos permiten almacenar datos de forma más útil que las variables simples.</li>
+          <li>Describe el proceso general de abrir, leer o escribir y cerrar un archivo.</li>
+          <li>Explica cómo pueden combinarse los archivos con estructuras de datos dentro de un programa.</li>
+          <li>Compara el almacenamiento en archivos con el almacenamiento temporal en memoria.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es un archivo?</li>
+          <li>¿Qué significa leer un archivo?</li>
+          <li>¿Qué significa escribir en un archivo?</li>
+          <li>¿Por qué son útiles los archivos?</li>
+          <li>¿Qué diferencia hay entre almacenamiento temporal y persistente?</li>
+          <li>¿Por qué es importante cerrar un archivo?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es un conjunto de datos almacenado de forma permanente en un dispositivo.</li>
+          <li>Significa obtener la información guardada en él para usarla en el programa.</li>
+          <li>Significa guardar información dentro del archivo.</li>
+          <li>Porque permiten conservar datos después de cerrar el programa.</li>
+          <li>El temporal se pierde al terminar la ejecución; el persistente permanece guardado.</li>
+          <li>Porque asegura que los datos se guarden bien y libera recursos del sistema.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="b2_4.html" style="color:#102a43;border-color:#9fb5d9;">← B2.4</a>
+        <a class="btn btn-primary" href="b3_1.html">B3.1 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
