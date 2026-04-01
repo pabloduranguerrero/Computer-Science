@@ -1,21 +1,388 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>B2.2 Estructuras de datos | Temario NM</title><meta name="description" content="B2.2 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.2</div>
-<p class="kicker">Temario NM · B2.2</p><h2>B2.2 Estructuras de datos</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo elegir estructuras simples para guardar y procesar información?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Las estructuras de datos organizan información para poder trabajar con ella eficientemente.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Listas y arrays permiten almacenar colecciones de elementos. En NM interesa comprender acceso por índice, recorrido y operaciones básicas.</p><p>Elegir una estructura apropiada simplifica algoritmos y mejora rendimiento.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Listas</li><li>Arrays</li><li>Índice</li><li>Recorrido</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Guardar notas de una clase en lista para calcular promedio, máximo y distribución por rangos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Carritos de compra, listas de tareas, registros de eventos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Errores de índice, acceso fuera de rango, elección inadecuada de estructura.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>B2.3 (bucles), B2.4 (búsqueda/ordenación), A3 (datos estructurados).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Estructurar bien datos facilita programar.</li><li>Listas/arrays son herramientas esenciales en NM.</li><li>Índices y recorridos deben dominarse.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="b2_1.html" style="color:#102a43;border-color:#9fb5d9;">← B2.1</a><a class="btn btn-primary" href="b2_3.html">B2.3 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2.2 Estructuras de datos | Temario NM</title>
+  <meta name="description" content="B2.2 de informática IB nivel medio: estructuras de datos, listas, arrays y almacenamiento de datos con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.2
+      </div>
+
+      <p class="kicker">Temario NM · B2.2</p>
+      <h2>B2.2 Estructuras de datos</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se pueden organizar varios datos dentro de un programa para almacenarlos, acceder a ellos y manipularlos de forma eficiente?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>En los fundamentos de programación vimos que una <strong>variable</strong> permite almacenar un dato individual, como un número, una palabra o un valor lógico. Sin embargo, muchos programas necesitan trabajar con <strong>conjuntos de datos</strong>, no solo con valores aislados.</p>
+        <p>Por ejemplo, una aplicación puede necesitar guardar:</p>
+        <ul>
+          <li>las notas de toda una clase</li>
+          <li>los nombres de varios estudiantes</li>
+          <li>una lista de tareas pendientes</li>
+          <li>los productos disponibles en una tienda</li>
+          <li>las temperaturas registradas durante una semana</li>
+        </ul>
+        <p>Si intentáramos guardar toda esa información usando una variable diferente para cada elemento, el programa se volvería rápidamente desordenado, difícil de ampliar y complicado de mantener.</p>
+        <p>Para resolver este problema se utilizan las <strong>estructuras de datos</strong>. Una estructura de datos es una forma de organizar varios valores dentro de un programa para poder almacenarlos, acceder a ellos y utilizarlos con mayor facilidad.</p>
+        <p>En este tema nos centraremos en las estructuras más básicas y más útiles para este nivel:</p>
+        <ul>
+          <li><strong>listas</strong></li>
+          <li><strong>arrays</strong></li>
+          <li><strong>estructuras simples de almacenamiento</strong></li>
+        </ul>
+        <p>El objetivo no es solo conocer su definición, sino entender <strong>por qué son necesarias</strong>, cómo se utilizan y en qué situaciones resulta más útil emplearlas que utilizar variables aisladas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>¿Qué es una estructura de datos?</h4>
+        <p>Una <strong>estructura de datos</strong> es una forma organizada de almacenar varios datos dentro de un programa. Su finalidad es permitir que esos datos puedan gestionarse de manera más clara y eficiente.</p>
+        <p>En otras palabras, una estructura de datos ayuda a responder preguntas como estas:</p>
+        <ul>
+          <li>¿Cómo guardamos varios valores relacionados?</li>
+          <li>¿Cómo accedemos a uno de ellos?</li>
+          <li>¿Cómo recorremos todos los elementos?</li>
+          <li>¿Cómo añadimos, modificamos o eliminamos datos?</li>
+        </ul>
+        <p>La necesidad de usar estructuras de datos aparece en cuanto un programa deja de trabajar con un único valor. Por ejemplo, si queremos almacenar las notas de cinco estudiantes, no resulta práctico usar variables como:</p>
+        <pre><code>nota1 = 7
+nota2 = 8
+nota3 = 6
+nota4 = 9
+nota5 = 5</code></pre>
+        <p>Aunque esto puede funcionar en un ejemplo muy pequeño, se vuelve incómodo y poco flexible. ¿Qué pasaría si en lugar de cinco estudiantes hubiera treinta? ¿Y si quisiéramos calcular la media automáticamente? ¿Y si hubiera que añadir una nueva nota?</p>
+        <p>Para esas situaciones es mucho mejor utilizar una estructura de datos que guarde todas las notas juntas.</p>
+
+        <h4>¿Por qué son importantes las estructuras de datos?</h4>
+        <p>Las estructuras de datos son fundamentales porque permiten:</p>
+        <ul>
+          <li>organizar información relacionada</li>
+          <li>trabajar con varios valores de forma conjunta</li>
+          <li>reducir la cantidad de variables necesarias</li>
+          <li>hacer programas más escalables</li>
+          <li>facilitar el uso de bucles y algoritmos</li>
+        </ul>
+        <p>Sin estructuras de datos, muchos programas serían demasiado largos, repetitivos y difíciles de mantener.</p>
+
+        <h4>Listas</h4>
+        <p>Una de las estructuras de datos más comunes y útiles es la <strong>lista</strong>. Una lista es una colección ordenada de elementos que se almacenan juntos bajo un mismo nombre.</p>
+        <p>Por ejemplo:</p>
+        <pre><code>notas = [7, 8, 6, 9, 5]</code></pre>
+        <p>Aquí, la variable <code>notas</code> no guarda un único valor, sino varios números agrupados en una misma estructura.</p>
+
+        <h5>Características de las listas</h5>
+        <ul>
+          <li>guardan varios elementos</li>
+          <li>mantienen un orden</li>
+          <li>cada elemento puede accederse mediante una posición</li>
+          <li>en muchos lenguajes, pueden modificarse fácilmente</li>
+        </ul>
+        <p>En Python, por ejemplo, cada elemento de la lista tiene un índice o posición. Normalmente, el primer elemento ocupa la posición 0.</p>
+        <pre><code>notas = [7, 8, 6, 9, 5]
+print(notas[0])</code></pre>
+        <p>La salida sería 7, porque ese es el primer valor de la lista.</p>
+
+        <h5>Acceso a elementos</h5>
+        <p>Podemos acceder a cualquier elemento si conocemos su posición:</p>
+        <pre><code>nombres = ["Ana", "Carlos", "Lucía", "Pedro"]
+print(nombres[2])</code></pre>
+        <p>La salida sería <code>Lucía</code>.</p>
+        <p>Esto es muy útil porque permite trabajar con colecciones de datos sin tener que usar una variable distinta para cada elemento.</p>
+
+        <h5>Modificar elementos de una lista</h5>
+        <p>En muchos lenguajes, las listas permiten modificar los valores que contienen:</p>
+        <pre><code>notas = [7, 8, 6]
+notas[1] = 10
+print(notas)</code></pre>
+        <p>Ahora la lista pasaría a ser <code>[7, 10, 6]</code>.</p>
+
+        <h5>Añadir elementos</h5>
+        <p>También suele ser posible añadir nuevos elementos:</p>
+        <pre><code>tareas = ["estudiar", "leer"]
+tareas.append("repasar")
+print(tareas)</code></pre>
+        <p>La lista ahora contendría tres tareas.</p>
+
+        <h5>Recorrer una lista</h5>
+        <p>Una de las mayores ventajas de las listas es que pueden recorrerse usando bucles. Esto permite aplicar la misma operación a todos sus elementos.</p>
+        <pre><code>notas = [7, 8, 6, 9, 5]
+for nota in notas:
+    print(nota)</code></pre>
+        <p>Este programa muestra cada nota por separado. Aquí se ve claramente por qué las estructuras de datos son tan útiles: trabajar con varios valores resulta mucho más sencillo.</p>
+
+        <h4>Arrays</h4>
+        <p>Otra estructura de datos importante es el <strong>array</strong>. En muchos contextos educativos, el array se presenta como una estructura similar a una lista, ya que también permite almacenar varios elementos bajo un mismo nombre y acceder a ellos por posición.</p>
+        <p>La idea principal de un array es que contiene una secuencia ordenada de elementos del mismo tipo.</p>
+        <p>Por ejemplo, un array de temperaturas podría almacenar:</p>
+        <pre><code>[18, 20, 19, 21, 22]</code></pre>
+        <p>y un array de nombres podría almacenar:</p>
+        <pre><code>["Ana", "Carlos", "Lucía"]</code></pre>
+
+        <h5>Lista y array: similitudes y diferencias</h5>
+        <p>En este nivel, lo más importante es entender que tanto listas como arrays sirven para almacenar varios elementos. No obstante, conceptualmente suele explicarse que:</p>
+        <ul>
+          <li>una <strong>lista</strong> suele ser más flexible</li>
+          <li>un <strong>array</strong> suele tener una estructura más fija</li>
+          <li>un <strong>array</strong> suele contener elementos del mismo tipo</li>
+        </ul>
+        <p>En muchos cursos introductorios, especialmente cuando se usa Python, la lista cumple el papel práctico que en otros lenguajes cumple el array.</p>
+        <p>Por tanto, para un estudiante de este nivel, lo más importante es comprender la idea general: se trata de estructuras que permiten guardar muchos datos relacionados y acceder a ellos mediante índices.</p>
+
+        <h5>Índices y posiciones</h5>
+        <p>Tanto en listas como en arrays, los elementos suelen identificarse por su posición. Esta posición recibe el nombre de <strong>índice</strong>.</p>
+        <p>Por ejemplo, en la lista:</p>
+        <pre><code>colores = ["rojo", "azul", "verde"]</code></pre>
+        <ul>
+          <li><code>colores[0]</code> es "rojo"</li>
+          <li><code>colores[1]</code> es "azul"</li>
+          <li><code>colores[2]</code> es "verde"</li>
+        </ul>
+        <p>Comprender los índices es esencial, porque permiten acceder a datos concretos dentro de una colección.</p>
+
+        <h4>Estructuras simples de almacenamiento</h4>
+        <p>Cuando hablamos de <strong>estructuras simples de almacenamiento</strong>, nos referimos a formas básicas de guardar datos de manera organizada dentro de un programa. En este nivel, las más importantes son precisamente las estructuras lineales como listas y arrays.</p>
+        <p>Se llaman simples porque:</p>
+        <ul>
+          <li>son fáciles de entender</li>
+          <li>los datos suelen almacenarse en secuencia</li>
+          <li>permiten recorrer elementos uno a uno</li>
+          <li>son la base para estructuras más complejas</li>
+        </ul>
+        <p>Por ejemplo, una lista de nombres, una lista de temperaturas o una secuencia de precios son estructuras simples de almacenamiento.</p>
+
+        <h4>Ejemplo: guardar las notas de una clase</h4>
+        <p>Imaginemos que queremos almacenar las notas de cinco estudiantes y calcular la media.</p>
+        <pre><code>notas = [7, 8, 6, 9, 5]
+suma = 0
+
+for nota in notas:
+    suma = suma + nota
+
+media = suma / len(notas)
+print("La nota media es:", media)</code></pre>
+        <p>Este ejemplo muestra varias ideas importantes:</p>
+        <ul>
+          <li>las notas se guardan juntas en una estructura</li>
+          <li>se puede recorrer la colección con un bucle</li>
+          <li>se puede calcular un resultado a partir de todos los elementos</li>
+        </ul>
+
+        <h4>Ejemplo: lista de tareas</h4>
+        <pre><code>tareas = ["estudiar", "leer", "hacer ejercicios"]
+print(tareas[0])</code></pre>
+        <p>En este caso, la estructura de datos permite organizar varias tareas bajo una sola variable. Esto resulta mucho más práctico que usar variables separadas como <code>tarea1</code>, <code>tarea2</code> y <code>tarea3</code>.</p>
+
+        <h4>¿Cuándo conviene usar una estructura de datos?</h4>
+        <p>Conviene utilizar una estructura de datos cuando:</p>
+        <ul>
+          <li>hay varios valores relacionados</li>
+          <li>es necesario recorrer o procesar todos los elementos</li>
+          <li>los datos deben mantenerse agrupados</li>
+          <li>el número de elementos puede crecer</li>
+        </ul>
+        <p>Por ejemplo, tendría sentido usar una lista para:</p>
+        <ul>
+          <li>nombres de estudiantes</li>
+          <li>calificaciones</li>
+          <li>productos de una tienda</li>
+          <li>temperaturas de varios días</li>
+        </ul>
+        <p>En cambio, si solo queremos guardar un único dato, una variable simple suele ser suficiente.</p>
+
+        <h4>Ventajas de usar estructuras de datos</h4>
+        <ul>
+          <li>hacen el programa más ordenado</li>
+          <li>permiten agrupar información relacionada</li>
+          <li>facilitan el uso de bucles</li>
+          <li>evitan la repetición innecesaria de variables</li>
+          <li>preparan al estudiante para estructuras más avanzadas</li>
+        </ul>
+
+        <h4>Limitaciones y cuidados</h4>
+        <p>Aunque son muy útiles, las estructuras de datos también exigen cuidado. Algunos errores comunes son:</p>
+        <ul>
+          <li>usar un índice incorrecto</li>
+          <li>intentar acceder a una posición que no existe</li>
+          <li>confundir el valor con la posición</li>
+          <li>no entender qué tipo de datos contiene la estructura</li>
+        </ul>
+        <p>Por eso es importante practicar no solo la definición, sino también el uso real de estas estructuras en pequeños programas.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Estructura de datos:</strong> forma organizada de almacenar varios datos en un programa.</li>
+          <li><strong>Lista:</strong> colección ordenada de elementos almacenados bajo un mismo nombre.</li>
+          <li><strong>Array:</strong> estructura ordenada de elementos, normalmente del mismo tipo, accesibles por posición.</li>
+          <li><strong>Índice:</strong> posición de un elemento dentro de una lista o array.</li>
+          <li><strong>Colección:</strong> conjunto de varios elementos agrupados en una estructura.</li>
+          <li><strong>Recorrer:</strong> acceder a los elementos de una estructura uno a uno.</li>
+          <li><strong>Almacenamiento secuencial:</strong> organización lineal de los datos dentro de una estructura.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos que un profesor quiere almacenar las notas de varios estudiantes y calcular la media del grupo.</p>
+
+        <pre><code>notas = [7, 8, 6, 9, 5]
+suma = 0
+
+for nota in notas:
+    suma = suma + nota
+
+media = suma / len(notas)
+print("La media de la clase es:", media)</code></pre>
+
+        <p><strong>Qué ocurre en este programa:</strong></p>
+        <ul>
+          <li>se almacenan varias notas en una lista</li>
+          <li>se recorre la lista con un bucle</li>
+          <li>se suman todos los valores</li>
+          <li>se calcula la media usando el número total de elementos</li>
+          <li>se muestra el resultado final</li>
+        </ul>
+
+        <p><strong>Qué conceptos aparecen aquí:</strong></p>
+        <ul>
+          <li>estructura de datos</li>
+          <li>lista</li>
+          <li>índice implícito o recorrido secuencial</li>
+          <li>almacenamiento de varios datos relacionados</li>
+          <li>uso conjunto con algoritmos y bucles</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Educación:</strong> listas de estudiantes, notas, tareas o asistencias.</li>
+          <li><strong>Comercio electrónico:</strong> productos disponibles, precios y cantidades.</li>
+          <li><strong>Aplicaciones móviles:</strong> listas de mensajes, contactos o recordatorios.</li>
+          <li><strong>Videojuegos:</strong> puntuaciones, vidas, enemigos o posiciones.</li>
+          <li><strong>Sensores y robótica:</strong> almacenamiento de mediciones tomadas en distintos momentos.</li>
+        </ul>
+        <p>En todos estos contextos, los programas necesitan trabajar con varios datos relacionados, y por eso las estructuras de datos son indispensables.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir índice con valor:</strong> la posición no es lo mismo que el dato almacenado.</li>
+          <li><strong>Pensar que el primer índice es 1:</strong> en muchos lenguajes, el primer índice es 0.</li>
+          <li><strong>Intentar acceder a posiciones inexistentes:</strong> esto produce errores.</li>
+          <li><strong>No ver la utilidad de las estructuras de datos:</strong> usar muchas variables separadas suele ser peor.</li>
+          <li><strong>Confundir lista con variable simple:</strong> una lista contiene varios elementos, no uno solo.</li>
+          <li><strong>No relacionar estructuras de datos con bucles:</strong> muchas veces su utilidad real aparece al recorrerlas.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>B2.1 Fundamentos de programación:</strong> las estructuras de datos amplían la idea de variable simple.</li>
+          <li><strong>B2.3 Constructos de programación:</strong> los bucles y condicionales permiten trabajar con los elementos de una estructura.</li>
+          <li><strong>B2.4 Algoritmos de programación:</strong> muchos algoritmos procesan listas o arrays.</li>
+          <li><strong>B2.5 Procesamiento de archivos:</strong> los datos leídos de archivos suelen almacenarse en estructuras.</li>
+          <li><strong>A3 Bases de datos:</strong> aunque una base de datos es distinta de una lista, ambas organizan información de manera estructurada.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Las <strong>estructuras de datos</strong> permiten almacenar varios datos de forma organizada.</li>
+          <li>Las <strong>listas</strong> y los <strong>arrays</strong> son ejemplos básicos de estructuras de datos.</li>
+          <li>Estas estructuras agrupan varios valores bajo un mismo nombre.</li>
+          <li>Cada elemento suele identificarse mediante un <strong>índice</strong> o posición.</li>
+          <li>Las estructuras de datos facilitan el uso de bucles, algoritmos y programas más escalables.</li>
+          <li>Son esenciales cuando un programa trabaja con conjuntos de datos relacionados.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es una estructura de datos y explica por qué es útil en programación.</li>
+          <li>Explica la diferencia entre una variable simple y una lista.</li>
+          <li>Describe qué es un índice y por qué es importante en listas o arrays.</li>
+          <li>Analiza por qué una lista resulta más adecuada que varias variables separadas en determinados problemas.</li>
+          <li>Explica cómo puede utilizarse una estructura de datos para almacenar y procesar las notas de una clase.</li>
+          <li>Compara de manera general listas y arrays en el contexto de la programación básica.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es una estructura de datos?</li>
+          <li>¿Qué es una lista?</li>
+          <li>¿Qué es un índice?</li>
+          <li>¿Para qué sirve recorrer una lista?</li>
+          <li>¿Por qué puede ser mejor usar una lista que muchas variables distintas?</li>
+          <li>¿Qué error frecuente se comete con los índices?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es una forma organizada de almacenar varios datos dentro de un programa.</li>
+          <li>Es una colección ordenada de elementos almacenados bajo un mismo nombre.</li>
+          <li>Es la posición de un elemento dentro de una lista o array.</li>
+          <li>Sirve para acceder a sus elementos uno a uno y procesarlos.</li>
+          <li>Porque agrupa datos relacionados y facilita su manejo.</li>
+          <li>Creer que el primer índice es 1 cuando en muchos lenguajes es 0.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="b2_1.html" style="color:#102a43;border-color:#9fb5d9;">← B2.1</a>
+        <a class="btn btn-primary" href="b2_3.html">B2.3 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
