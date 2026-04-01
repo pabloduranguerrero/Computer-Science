@@ -1,21 +1,512 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>B2.4 Algoritmos de programación | Temario NM</title><meta name="description" content="B2.4 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.4</div>
-<p class="kicker">Temario NM · B2.4</p><h2>B2.4 Algoritmos de programación</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo diseñar algoritmos correctos antes de programar?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Antes de codificar, conviene diseñar un algoritmo claro y verificable.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Un algoritmo es una secuencia finita y no ambigua de pasos. Su diseño requiere entradas definidas, proceso coherente y salida verificable.</p><p>Pseudocódigo y diagramas de flujo ayudan a comunicar lógica y detectar errores antes de implementar.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Algoritmo</li><li>Diseño algorítmico</li><li>Pseudocódigo</li><li>Diagrama de flujo</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Algoritmo para validar contraseña: longitud mínima, presencia de número y respuesta final.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Automatización, búsqueda, clasificación de datos, control de procesos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Pasos vagos, olvidar casos límite, diagramas inconsistentes.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>B1.1 (pensamiento computacional), B2.3 (control), B2.5 (procesamiento de registros).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Algoritmo = lógica central del programa.</li><li>Diseñar antes de codificar mejora calidad.</li><li>Pseudocódigo/flujo son herramientas de planificación.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="b2_3.html" style="color:#102a43;border-color:#9fb5d9;">← B2.3</a><a class="btn btn-primary" href="b2_5.html">B2.5 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2.4 Algoritmos de programación | Temario NM</title>
+  <meta name="description" content="B2.4 de informática IB nivel medio: algoritmos de programación, diseño de algoritmos, pseudocódigo y diagramas de flujo con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.4
+      </div>
+
+      <p class="kicker">Temario NM · B2.4</p>
+      <h2>B2.4 Algoritmos de programación</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo se diseña una secuencia clara, ordenada y precisa de pasos para resolver un problema informático antes de convertirla en código?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>Cuando una persona empieza a programar, muchas veces piensa que lo más importante es escribir código cuanto antes. Sin embargo, en informática profesional y en el estudio riguroso de la programación, escribir código es solo una parte del proceso. Antes de programar, hace falta pensar la solución.</p>
+        <p>Ese proceso de diseñar la solución paso a paso nos lleva al concepto de <strong>algoritmo</strong>. Un algoritmo es una secuencia ordenada de instrucciones que permite resolver un problema o realizar una tarea concreta.</p>
+        <p>Los algoritmos están presentes en toda la informática. Cada vez que una aplicación ordena datos, busca una palabra, calcula una media, valida una contraseña o muestra una ruta, detrás hay uno o varios algoritmos.</p>
+        <p>Pero los algoritmos no son exclusivos del mundo digital. También aparecen en la vida cotidiana. Una receta de cocina, las instrucciones para montar un objeto o el procedimiento para resolver una operación matemática pueden entenderse como algoritmos, porque describen una secuencia clara de pasos.</p>
+        <p>En programación, los algoritmos son esenciales porque permiten:</p>
+        <ul>
+          <li>organizar el pensamiento antes de escribir código</li>
+          <li>detectar errores lógicos antes de programar</li>
+          <li>comunicar una solución de forma clara</li>
+          <li>crear programas más correctos y comprensibles</li>
+        </ul>
+        <p>En este apartado estudiaremos:</p>
+        <ul>
+          <li>qué es un algoritmo</li>
+          <li>cómo se diseña un algoritmo</li>
+          <li>cómo representar algoritmos mediante <strong>pseudocódigo</strong></li>
+          <li>cómo representar algoritmos mediante <strong>diagramas de flujo</strong></li>
+        </ul>
+        <p>El objetivo es que el alumnado comprenda que programar no es solo escribir sintaxis, sino pensar una solución lógica y estructurada antes de implementarla.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>¿Qué es un algoritmo?</h4>
+        <p>Un <strong>algoritmo</strong> es una secuencia ordenada, finita y precisa de pasos que permite resolver un problema o realizar una tarea.</p>
+        <p>Esta definición contiene varias ideas importantes:</p>
+        <ul>
+          <li><strong>secuencia ordenada</strong>: los pasos siguen un orden lógico</li>
+          <li><strong>finita</strong>: el proceso debe terminar en algún momento</li>
+          <li><strong>precisa</strong>: cada paso debe estar claramente definido</li>
+        </ul>
+        <p>Si una secuencia de instrucciones es ambigua, puede interpretarse de varias maneras y dejar de ser un algoritmo útil. Si nunca termina, tampoco sería un algoritmo correcto para resolver el problema.</p>
+
+        <h5>Ejemplo cotidiano</h5>
+        <p>Preparar un bocadillo puede expresarse como un algoritmo:</p>
+        <ol>
+          <li>coger pan</li>
+          <li>abrir el pan</li>
+          <li>añadir los ingredientes</li>
+          <li>cerrar el pan</li>
+          <li>servir</li>
+        </ol>
+        <p>Esta secuencia tiene un orden, una finalidad y un final.</p>
+
+        <h5>Ejemplo informático</h5>
+        <p>Calcular la media de dos números:</p>
+        <ol>
+          <li>leer el primer número</li>
+          <li>leer el segundo número</li>
+          <li>sumar ambos valores</li>
+          <li>dividir entre 2</li>
+          <li>mostrar el resultado</li>
+        </ol>
+
+        <p>Esto ya es un algoritmo, aunque todavía no esté escrito en un lenguaje de programación.</p>
+
+        <h4>¿Por qué son importantes los algoritmos?</h4>
+        <p>Los algoritmos son importantes porque representan la lógica de la solución. Antes de escribir un programa, debemos tener claro qué pasos resolverán el problema.</p>
+        <p>Si una persona empieza a programar sin haber pensado bien el algoritmo, es más probable que:</p>
+        <ul>
+          <li>olvide pasos importantes</li>
+          <li>cometa errores lógicos</li>
+          <li>escriba código desordenado</li>
+          <li>tenga dificultades para corregir o mejorar la solución</li>
+        </ul>
+        <p>En cambio, si primero diseña un algoritmo claro, el código posterior será mucho más fácil de construir y revisar.</p>
+
+        <h4>Características de un buen algoritmo</h4>
+        <p>Un buen algoritmo debe tener varias características:</p>
+
+        <h5>1. Claridad</h5>
+        <p>Los pasos deben entenderse fácilmente y no generar dudas sobre lo que hay que hacer.</p>
+
+        <h5>2. Precisión</h5>
+        <p>No debe haber ambigüedad. Cada paso debe indicar exactamente qué acción realizar.</p>
+
+        <h5>3. Finitez</h5>
+        <p>Debe terminar después de un número finito de pasos.</p>
+
+        <h5>4. Eficacia</h5>
+        <p>Debe resolver realmente el problema planteado.</p>
+
+        <h5>5. Generalidad</h5>
+        <p>Siempre que sea posible, debe servir para resolver no solo un caso concreto, sino una clase de problemas similares.</p>
+
+        <h5>Ejemplo de falta de precisión</h5>
+        <p>Si un algoritmo dice simplemente “hacer la operación” sin explicar cuál, no es preciso.</p>
+
+        <h5>Ejemplo de falta de finitez</h5>
+        <p>Si un proceso repite acciones sin una condición de parada, no cumple la característica de ser finito.</p>
+
+        <h4>Diseño de algoritmos</h4>
+        <p>El <strong>diseño de algoritmos</strong> consiste en construir de manera lógica la secuencia de pasos que resuelve un problema.</p>
+        <p>Diseñar un algoritmo no significa solo escribir unas instrucciones cualquiera. Significa analizar bien el problema y decidir:</p>
+        <ul>
+          <li>qué datos entran</li>
+          <li>qué operaciones hay que hacer</li>
+          <li>qué resultado se espera</li>
+          <li>en qué orden deben ejecutarse los pasos</li>
+        </ul>
+
+        <h5>Modelo entrada → proceso → salida</h5>
+        <p>Una forma muy útil de diseñar algoritmos es pensar en tres elementos:</p>
+        <ul>
+          <li><strong>Entrada</strong>: los datos iniciales</li>
+          <li><strong>Proceso</strong>: las operaciones que se realizan</li>
+          <li><strong>Salida</strong>: el resultado final</li>
+        </ul>
+
+        <h5>Ejemplo</h5>
+        <p>Problema: calcular el salario semanal a partir de las horas trabajadas y del salario por hora.</p>
+        <p><strong>Entrada</strong></p>
+        <ul>
+          <li>horas trabajadas</li>
+          <li>salario por hora</li>
+        </ul>
+        <p><strong>Proceso</strong></p>
+        <ul>
+          <li>multiplicar las horas por el salario por hora</li>
+        </ul>
+        <p><strong>Salida</strong></p>
+        <ul>
+          <li>salario semanal</li>
+        </ul>
+
+        <p>A partir de este análisis, ya es mucho más fácil redactar el algoritmo.</p>
+
+        <h4>Pseudocódigo</h4>
+        <p>El <strong>pseudocódigo</strong> es una forma de representar algoritmos mediante instrucciones escritas de manera estructurada, parecidas a un lenguaje de programación, pero sin depender de la sintaxis exacta de uno concreto.</p>
+        <p>Su objetivo es expresar con claridad la lógica del algoritmo sin preocuparse todavía por los detalles formales del lenguaje.</p>
+
+        <h5>Ventajas del pseudocódigo</h5>
+        <ul>
+          <li>es más fácil de leer que el código real</li>
+          <li>permite centrarse en la lógica</li>
+          <li>ayuda a planificar antes de programar</li>
+          <li>sirve como paso intermedio entre la idea y el código</li>
+        </ul>
+
+        <h5>Ejemplo de pseudocódigo</h5>
+        <p>Problema: calcular la media de dos números.</p>
+
+        <pre><code>INICIO
+  LEER numero1
+  LEER numero2
+  suma ← numero1 + numero2
+  media ← suma / 2
+  ESCRIBIR media
+FIN</code></pre>
+
+        <p>Este pseudocódigo deja clara la lógica del proceso sin depender de Python, Java u otro lenguaje.</p>
+
+        <h5>Pseudocódigo con selección</h5>
+        <p>Problema: indicar si una nota es aprobada o suspendida.</p>
+
+        <pre><code>INICIO
+  LEER nota
+  SI nota >= 5 ENTONCES
+      ESCRIBIR "Aprobado"
+  SI NO
+      ESCRIBIR "Suspenso"
+FIN</code></pre>
+
+        <h5>Pseudocódigo con iteración</h5>
+        <p>Problema: mostrar los números del 1 al 5.</p>
+
+        <pre><code>INICIO
+  contador ← 1
+  MIENTRAS contador <= 5 HACER
+      ESCRIBIR contador
+      contador ← contador + 1
+  FIN MIENTRAS
+FIN</code></pre>
+
+        <h5>Importancia del pseudocódigo</h5>
+        <p>El pseudocódigo es muy útil porque obliga al alumnado a pensar en la lógica del algoritmo sin esconderse detrás de la sintaxis. Muchas veces un estudiante cree que no entiende la programación, cuando en realidad lo que no tiene claro es el algoritmo.</p>
+
+        <h4>Diagramas de flujo</h4>
+        <p>Otra manera muy importante de representar algoritmos es mediante <strong>diagramas de flujo</strong>.</p>
+        <p>Un diagrama de flujo es una representación gráfica del algoritmo. Utiliza símbolos estándar conectados por flechas para mostrar el orden de ejecución de las acciones.</p>
+
+        <h5>¿Para qué sirven?</h5>
+        <ul>
+          <li>ayudan a visualizar la lógica del algoritmo</li>
+          <li>facilitan la comprensión de procesos complejos</li>
+          <li>permiten ver claramente decisiones y repeticiones</li>
+          <li>son muy útiles para explicar algoritmos a otras personas</li>
+        </ul>
+
+        <h5>Símbolos básicos de un diagrama de flujo</h5>
+        <ul>
+          <li><strong>Óvalo:</strong> inicio o fin</li>
+          <li><strong>Rectángulo:</strong> proceso o instrucción</li>
+          <li><strong>Paralelogramo:</strong> entrada o salida</li>
+          <li><strong>Rombo:</strong> decisión o condición</li>
+          <li><strong>Flechas:</strong> dirección del flujo</li>
+        </ul>
+
+        <h5>Ejemplo descrito de diagrama de flujo</h5>
+        <p>Problema: indicar si una nota es aprobada o suspendida.</p>
+        <ol>
+          <li>Inicio</li>
+          <li>Leer nota</li>
+          <li>¿nota >= 5?</li>
+          <li>Si sí → escribir “Aprobado”</li>
+          <li>Si no → escribir “Suspenso”</li>
+          <li>Fin</li>
+        </ol>
+
+        <p>En un diagrama de flujo, el paso 3 aparecería en un rombo, con dos salidas posibles.</p>
+
+        <h5>Relación entre pseudocódigo y diagramas de flujo</h5>
+        <p>Ambos representan algoritmos, pero de formas distintas:</p>
+        <ul>
+          <li>el <strong>pseudocódigo</strong> usa texto estructurado</li>
+          <li>el <strong>diagrama de flujo</strong> usa símbolos gráficos</li>
+        </ul>
+        <p>Ambos son útiles, y en muchos casos se complementan.</p>
+
+        <h4>Algoritmos y constructos de programación</h4>
+        <p>Los algoritmos suelen construirse usando las tres estructuras básicas de control:</p>
+        <ul>
+          <li><strong>secuencia</strong></li>
+          <li><strong>selección</strong></li>
+          <li><strong>iteración</strong></li>
+        </ul>
+
+        <p>Esto significa que, para diseñar algoritmos correctamente, el alumnado debe comprender bien los constructos de programación.</p>
+
+        <h5>Ejemplo combinado</h5>
+        <p>Problema: leer varias notas y mostrar si cada una es aprobada o suspendida.</p>
+
+        <pre><code>INICIO
+  LEER cantidad
+  PARA i DESDE 1 HASTA cantidad HACER
+      LEER nota
+      SI nota >= 5 ENTONCES
+          ESCRIBIR "Aprobado"
+      SI NO
+          ESCRIBIR "Suspenso"
+  FIN PARA
+FIN</code></pre>
+
+        <p>Este algoritmo combina:</p>
+        <ul>
+          <li>secuencia</li>
+          <li>iteración</li>
+          <li>selección</li>
+        </ul>
+
+        <h4>Ejemplos de algoritmos clásicos</h4>
+
+        <h5>1. Encontrar el número mayor entre dos valores</h5>
+        <pre><code>INICIO
+  LEER a
+  LEER b
+  SI a > b ENTONCES
+      ESCRIBIR a
+  SI NO
+      ESCRIBIR b
+FIN</code></pre>
+
+        <h5>2. Sumar los números del 1 al 5</h5>
+        <pre><code>INICIO
+  suma ← 0
+  PARA i DESDE 1 HASTA 5 HACER
+      suma ← suma + i
+  FIN PARA
+  ESCRIBIR suma
+FIN</code></pre>
+
+        <h5>3. Calcular el área de un triángulo</h5>
+        <pre><code>INICIO
+  LEER base
+  LEER altura
+  area ← (base * altura) / 2
+  ESCRIBIR area
+FIN</code></pre>
+
+        <h4>Errores comunes al diseñar algoritmos</h4>
+        <p>Muchos errores de programación surgen antes de escribir el código, en la fase de diseño del algoritmo.</p>
+
+        <p>Errores habituales:</p>
+        <ul>
+          <li>olvidar datos de entrada necesarios</li>
+          <li>no definir correctamente la salida esperada</li>
+          <li>escribir pasos ambiguos</li>
+          <li>plantear mal las condiciones</li>
+          <li>crear repeticiones sin fin</li>
+          <li>confundir el orden de los pasos</li>
+        </ul>
+
+        <p>Por eso es tan importante entrenar el razonamiento algorítmico antes de programar directamente.</p>
+
+        <h4>Importancia de los algoritmos en el mundo real</h4>
+        <p>Los algoritmos aparecen en prácticamente todas las aplicaciones informáticas:</p>
+        <ul>
+          <li>motores de búsqueda</li>
+          <li>ordenación de datos</li>
+          <li>recomendaciones en plataformas digitales</li>
+          <li>cálculo de rutas</li>
+          <li>procesamiento de pagos</li>
+          <li>análisis de resultados académicos</li>
+        </ul>
+        <p>Aunque los algoritmos reales puedan ser mucho más complejos, todos parten de la misma idea fundamental: diseñar una secuencia lógica de pasos para resolver un problema.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Algoritmo:</strong> secuencia ordenada, precisa y finita de pasos para resolver un problema.</li>
+          <li><strong>Diseño de algoritmos:</strong> proceso de construir la lógica de una solución antes de programarla.</li>
+          <li><strong>Pseudocódigo:</strong> representación textual estructurada de un algoritmo sin depender de un lenguaje concreto.</li>
+          <li><strong>Diagrama de flujo:</strong> representación gráfica de un algoritmo mediante símbolos y flechas.</li>
+          <li><strong>Entrada:</strong> datos que recibe el algoritmo.</li>
+          <li><strong>Proceso:</strong> operaciones que se realizan con esos datos.</li>
+          <li><strong>Salida:</strong> resultado final obtenido.</li>
+          <li><strong>Secuencia:</strong> ejecución ordenada de instrucciones.</li>
+          <li><strong>Selección:</strong> toma de decisiones según una condición.</li>
+          <li><strong>Iteración:</strong> repetición de instrucciones varias veces.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos que queremos diseñar un algoritmo para calcular la media de varias notas y decidir si el resultado es aprobado o suspendido.</p>
+
+        <pre><code>INICIO
+  suma ← 0
+  LEER cantidad
+
+  PARA i DESDE 1 HASTA cantidad HACER
+      LEER nota
+      suma ← suma + nota
+  FIN PARA
+
+  media ← suma / cantidad
+
+  SI media >= 5 ENTONCES
+      ESCRIBIR "Aprobado"
+  SI NO
+      ESCRIBIR "Suspenso"
+FIN</code></pre>
+
+        <p><strong>Qué ocurre en este algoritmo:</strong></p>
+        <ul>
+          <li>se pide cuántas notas se van a introducir</li>
+          <li>se repite la lectura de notas varias veces</li>
+          <li>se acumula la suma total</li>
+          <li>se calcula la media</li>
+          <li>se decide si la media es aprobada o suspendida</li>
+        </ul>
+
+        <p><strong>Qué conceptos aparecen:</strong></p>
+        <ul>
+          <li>algoritmo</li>
+          <li>diseño lógico de la solución</li>
+          <li>pseudocódigo</li>
+          <li>entrada → proceso → salida</li>
+          <li>selección</li>
+          <li>iteración</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Aplicaciones educativas:</strong> calculan medias, clasifican resultados y corrigen respuestas.</li>
+          <li><strong>Tiendas online:</strong> calculan precios, descuentos y disponibilidad.</li>
+          <li><strong>Sistemas bancarios:</strong> procesan movimientos y validan operaciones.</li>
+          <li><strong>Motores de búsqueda:</strong> aplican algoritmos para ordenar resultados.</li>
+          <li><strong>Aplicaciones de mapas:</strong> calculan rutas y tiempos estimados.</li>
+        </ul>
+        <p>En todos estos casos, el código que se ejecuta se apoya en algoritmos diseñados previamente.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>Confundir algoritmo con programa:</strong> el algoritmo es la lógica; el programa es su implementación en código.</li>
+          <li><strong>Pensar que el pseudocódigo es un lenguaje real:</strong> es una representación estructurada, no un lenguaje ejecutable.</li>
+          <li><strong>Escribir pasos ambiguos:</strong> un algoritmo debe ser claro y preciso.</li>
+          <li><strong>No tener en cuenta la entrada y la salida:</strong> esto dificulta el diseño correcto de la solución.</li>
+          <li><strong>Olvidar la condición de parada en repeticiones:</strong> esto puede llevar a procesos infinitos.</li>
+          <li><strong>No ver la utilidad de los diagramas de flujo:</strong> en realidad ayudan mucho a visualizar decisiones y recorridos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>B1.1 Pensamiento computacional:</strong> el diseño de algoritmos es una parte central del pensamiento computacional.</li>
+          <li><strong>B2.1 Fundamentos de programación:</strong> los algoritmos se implementan después mediante instrucciones y variables.</li>
+          <li><strong>B2.2 Estructuras de datos:</strong> muchos algoritmos trabajan sobre listas y arrays.</li>
+          <li><strong>B2.3 Constructos de programación:</strong> secuencia, selección e iteración son la base de la mayoría de algoritmos.</li>
+          <li><strong>B2.5 Procesamiento de archivos:</strong> los algoritmos también sirven para organizar cómo se leen y escriben datos en archivos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Un <strong>algoritmo</strong> es una secuencia ordenada, finita y precisa de pasos para resolver un problema.</li>
+          <li>El <strong>diseño de algoritmos</strong> consiste en pensar la solución antes de programarla.</li>
+          <li>El <strong>pseudocódigo</strong> permite representar algoritmos mediante texto estructurado.</li>
+          <li>Los <strong>diagramas de flujo</strong> permiten representar algoritmos de forma visual.</li>
+          <li>Un buen algoritmo debe ser claro, preciso, finito y eficaz.</li>
+          <li>Muchos algoritmos se organizan en torno al modelo <strong>entrada → proceso → salida</strong>.</li>
+          <li>Los algoritmos son la base lógica de los programas informáticos.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué es un algoritmo y explica sus características principales.</li>
+          <li>Explica la diferencia entre algoritmo y programa.</li>
+          <li>Describe qué es el pseudocódigo y por qué es útil.</li>
+          <li>Explica qué es un diagrama de flujo y qué ventajas ofrece.</li>
+          <li>Analiza por qué el modelo entrada → proceso → salida resulta útil en el diseño de algoritmos.</li>
+          <li>Diseña un algoritmo sencillo para resolver un problema cotidiano o académico.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es un algoritmo?</li>
+          <li>¿Qué significa que un algoritmo sea finito?</li>
+          <li>¿Qué es el pseudocódigo?</li>
+          <li>¿Qué representa un diagrama de flujo?</li>
+          <li>¿Qué diferencia hay entre algoritmo y programa?</li>
+          <li>¿Por qué conviene diseñar el algoritmo antes de escribir código?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es una secuencia ordenada, precisa y finita de pasos para resolver un problema.</li>
+          <li>Significa que termina después de un número limitado de pasos.</li>
+          <li>Es una representación textual estructurada de un algoritmo sin depender de un lenguaje concreto.</li>
+          <li>Representa gráficamente el algoritmo mediante símbolos y flechas.</li>
+          <li>El algoritmo es la lógica de la solución; el programa es su implementación en código.</li>
+          <li>Porque ayuda a pensar la solución con claridad y evita errores lógicos antes de programar.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="b2_3.html" style="color:#102a43;border-color:#9fb5d9;">← B2.3</a>
+        <a class="btn btn-primary" href="b2_5.html">B2.5 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
