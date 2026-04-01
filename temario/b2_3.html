@@ -1,21 +1,447 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>B2.3 Constructos de programación | Temario NM</title><meta name="description" content="B2.3 de informática IB nivel medio: explicación completa, ejemplo, preguntas tipo examen y mini test." />
-<link rel="stylesheet" href="../assets/styles.css" /></head><body><header class="site-header"><div class="container nav-wrap"><a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a><button class="nav-toggle" aria-label="Abrir menú">Menú</button><nav class="nav"><ul>
-<li><a href="../index.html">Inicio</a></li><li><a href="../sobre-mi.html">Sobre mí</a></li><li><a href="../temario-nm.html">Temario NM</a></li><li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li><li><a href="../banco-preguntas.html">Banco de preguntas</a></li><li><a href="../solucion-computacional.html">Solución computacional</a></li><li><a href="../recursos.html">Recursos</a></li><li><a href="../clases-conmigo.html">Clases conmigo</a></li><li><a href="../contacto.html">Contacto</a></li>
-</ul></nav></div></header>
-<section class="section"><div class="container"><div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.3</div>
-<p class="kicker">Temario NM · B2.3</p><h2>B2.3 Constructos de programación</h2>
-<div class="card"><h3>Pregunta guía</h3><p>¿Cómo controlar el flujo de un programa con decisiones y repeticiones?</p></div>
-<div class="card" style="margin-top:14px;"><h3>Introducción</h3><p>Los constructos de control permiten adaptar la ejecución a condiciones y repeticiones.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Explicación detallada</h3><p>Condicionales (if/else) seleccionan caminos de ejecución; bucles (for/while) repiten acciones de forma controlada.</p><p>Combinar secuencia, selección e iteración permite resolver problemas reales de manera robusta.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conceptos clave</h3><ul><li>Condicionales</li><li>Bucles</li><li>Estructuras de control</li><li>Flujo de ejecución</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Ejemplo práctico</h3><p>Clasificar calificaciones de una lista usando bucle y condicionales por rangos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Aplicaciones en el mundo real</h3><p>Validación de formularios, menús, procesamiento masivo de datos.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Errores frecuentes de los estudiantes</h3><p>Bucles infinitos, condiciones mal formuladas, no actualizar variables de control.</p></div>
-<div class="card" style="margin-top:14px;"><h3>Conexiones con otros temas del curso</h3><p>B2.1 (variables), B2.2 (recorridos), B2.4 (implementación algorítmica).</p></div>
-<div class="card" style="margin-top:14px;"><h3>Resumen</h3><ul><li>Controlar flujo es clave para programas útiles.</li><li>Selección e iteración son pilares de B2.</li><li>Evitar ambigüedad reduce fallos.</li></ul></div>
-<div class="card" style="margin-top:14px;"><h3>Preguntas tipo examen</h3><ol><li>Define el concepto principal del subtema y explica su utilidad.</li><li>Compara dos elementos clave del subtema indicando ventajas y limitaciones.</li><li>Aplica el contenido a un contexto real de aula o plataforma digital.</li><li>Analiza un error frecuente y propone cómo evitarlo.</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Mini test de autoevaluación</h3><ol><li>¿Puedes definir correctamente el concepto central del subtema?</li><li>¿Sabes aplicar al menos un ejemplo real?</li><li>¿Puedes identificar un error típico del tema?</li><li>¿Puedes relacionarlo con otro tema del curso?</li></ol></div>
-<div class="card" style="margin-top:14px;"><h3>Respuestas del mini test</h3><ol><li>Sí, con definición técnica breve y precisa.</li><li>Sí, explicando paso a paso el caso.</li><li>Sí, indicando causa y corrección.</li><li>Sí, citando al menos una conexión clara.</li></ol></div>
-<div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;"><a class="btn btn-secondary" href="b2_2.html" style="color:#102a43;border-color:#9fb5d9;">← B2.2</a><a class="btn btn-primary" href="b2_4.html">B2.4 →</a></div>
-</div></section><footer class="footer"><div class="container"><p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p><p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p></div></footer><script src="../assets/main.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B2.3 Constructos de programación | Temario NM</title>
+  <meta name="description" content="B2.3 de informática IB nivel medio: constructos de programación, secuencia, selección e iteración, condicionales, bucles y estructuras de control con explicación extensa, ejemplos, preguntas tipo examen y mini test." />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="../index.html">Pablo Durán Guerrero · Informática IB NM</a>
+      <button class="nav-toggle" aria-label="Abrir menú">Menú</button>
+      <nav class="nav">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../sobre-mi.html">Sobre mí</a></li>
+          <li><a href="../temario-nm.html">Temario NM</a></li>
+          <li><a href="../preparacion-examen-nm.html">Preparación de examen NM</a></li>
+          <li><a href="../banco-preguntas.html">Banco de preguntas</a></li>
+          <li><a href="../solucion-computacional.html">Solución computacional</a></li>
+          <li><a href="../recursos.html">Recursos</a></li>
+          <li><a href="../clases-conmigo.html">Clases conmigo</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Inicio</a> / <a href="../temario-nm.html">Temario NM</a> / B2.3
+      </div>
+
+      <p class="kicker">Temario NM · B2.3</p>
+      <h2>B2.3 Constructos de programación</h2>
+
+      <div class="card">
+        <h3>Pregunta guía</h3>
+        <p>¿Cómo controlan los programas el orden en que se ejecutan las instrucciones para tomar decisiones, repetir acciones y resolver problemas de forma flexible?</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Introducción</h3>
+        <p>En los fundamentos de programación vimos que un programa está formado por instrucciones que normalmente se ejecutan de arriba hacia abajo. Sin embargo, un programa real necesita hacer mucho más que seguir siempre una secuencia fija. A veces debe decidir entre varias opciones, repetir una acción varias veces o detener un proceso cuando se cumple una determinada condición.</p>
+        <p>Por ejemplo, una aplicación puede necesitar:</p>
+        <ul>
+          <li>mostrar un mensaje distinto según la nota obtenida por el alumno</li>
+          <li>repetir una acción mientras queden elementos por procesar</li>
+          <li>detener una operación si aparece un error</li>
+          <li>recorrer una lista completa de datos</li>
+        </ul>
+        <p>Para hacer todo esto, los lenguajes de programación utilizan los llamados <strong>constructos de programación</strong>, también conocidos como <strong>estructuras de control</strong>. Son mecanismos que permiten controlar el flujo de ejecución del programa.</p>
+        <p>En este tema nos centraremos en tres ideas fundamentales:</p>
+        <ul>
+          <li><strong>secuencia</strong></li>
+          <li><strong>selección</strong></li>
+          <li><strong>iteración</strong></li>
+        </ul>
+        <p>Estas tres estructuras aparecen constantemente en programación y constituyen una base esencial para construir algoritmos y programas útiles.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Explicación detallada</h3>
+
+        <h4>¿Qué son los constructos de programación?</h4>
+        <p>Los <strong>constructos de programación</strong> son estructuras que permiten controlar cómo se ejecutan las instrucciones dentro de un programa.</p>
+        <p>Un programa no siempre debe hacer exactamente lo mismo en el mismo orden. A veces necesita:</p>
+        <ul>
+          <li>seguir una secuencia fija</li>
+          <li>tomar decisiones</li>
+          <li>repetir instrucciones</li>
+        </ul>
+        <p>Esas posibilidades se organizan a través de los constructos básicos del control de flujo.</p>
+
+        <h4>1. Secuencia</h4>
+        <p>La <strong>secuencia</strong> es la forma más simple de ejecución. Consiste en ejecutar las instrucciones una detrás de otra, en el orden en que aparecen en el programa.</p>
+        <p>Es el flujo natural de un programa cuando no hay decisiones ni repeticiones.</p>
+
+        <h5>Ejemplo</h5>
+        <pre><code>nombre = input("Introduce tu nombre: ")
+edad = int(input("Introduce tu edad: "))
+print("Hola", nombre)
+print("Tu edad es", edad)</code></pre>
+
+        <p>En este programa:</p>
+        <ol>
+          <li>se pide el nombre</li>
+          <li>se pide la edad</li>
+          <li>se muestra un saludo</li>
+          <li>se muestra la edad</li>
+        </ol>
+        <p>Las instrucciones se ejecutan en orden, sin saltos ni repeticiones.</p>
+
+        <h5>Importancia de la secuencia</h5>
+        <p>Aunque pueda parecer sencilla, la secuencia es fundamental porque todo programa está construido a partir de instrucciones ordenadas. Incluso cuando usamos condicionales y bucles, dentro de ellos sigue habiendo secuencias de pasos.</p>
+
+        <h5>Error frecuente</h5>
+        <p>Un error muy común es no prestar atención al orden de las instrucciones. Si se intenta usar una variable antes de asignarle un valor, el programa puede fallar o producir un resultado incorrecto.</p>
+
+        <h4>2. Selección</h4>
+        <p>La <strong>selección</strong> permite que el programa tome decisiones. Es decir, permite ejecutar unas instrucciones u otras según se cumpla o no una condición.</p>
+        <p>Gracias a la selección, un programa puede adaptarse a distintas situaciones.</p>
+
+        <h5>Idea básica</h5>
+        <p>La selección responde a una pregunta del tipo:</p>
+        <p><strong>Si ocurre esto, haz una cosa; si no, haz otra.</strong></p>
+
+        <h5>Condiciones</h5>
+        <p>Para tomar decisiones, el programa necesita evaluar una <strong>condición</strong>. Una condición es una expresión que puede dar como resultado <code>True</code> o <code>False</code>.</p>
+
+        <p>Ejemplos de condiciones:</p>
+        <pre><code>edad >= 18
+nota >= 5
+temperatura < 0</code></pre>
+
+        <h5>Selección simple: if</h5>
+        <p>La forma más básica de selección consiste en ejecutar una acción solo si se cumple una condición.</p>
+
+        <pre><code>edad = int(input("Introduce tu edad: "))
+
+if edad >= 18:
+    print("Eres mayor de edad")</code></pre>
+
+        <p>Si la condición es verdadera, se ejecuta el bloque de instrucciones. Si es falsa, el programa continúa sin ejecutar ese bloque.</p>
+
+        <h5>Selección doble: if-else</h5>
+        <p>Muchas veces no basta con decidir si se ejecuta una instrucción o no. A veces queremos elegir entre dos caminos posibles.</p>
+
+        <pre><code>nota = float(input("Introduce tu nota: "))
+
+if nota >= 5:
+    print("Has aprobado")
+else:
+    print("Has suspendido")</code></pre>
+
+        <p>Aquí el programa siempre ejecuta una de las dos opciones.</p>
+
+        <h5>Selección múltiple: if-elif-else</h5>
+        <p>También es posible que haya más de dos opciones. En ese caso, podemos usar varias condiciones encadenadas.</p>
+
+        <pre><code>nota = float(input("Introduce tu nota: "))
+
+if nota >= 9:
+    print("Sobresaliente")
+elif nota >= 7:
+    print("Notable")
+elif nota >= 5:
+    print("Aprobado")
+else:
+    print("Suspenso")</code></pre>
+
+        <p>El programa comprueba las condiciones en orden y ejecuta el primer bloque cuya condición sea verdadera.</p>
+
+        <h5>Importancia de la selección</h5>
+        <p>La selección es esencial porque permite crear programas que reaccionan a situaciones distintas. Sin ella, los programas serían rígidos y solo podrían seguir siempre un camino fijo.</p>
+
+        <h5>Aplicaciones comunes de la selección</h5>
+        <ul>
+          <li>validar contraseñas</li>
+          <li>clasificar calificaciones</li>
+          <li>comprobar si hay stock disponible</li>
+          <li>detectar errores</li>
+          <li>mostrar diferentes mensajes según el caso</li>
+        </ul>
+
+        <h5>Error frecuente</h5>
+        <p>Un error habitual es escribir condiciones mal planteadas o no comprender bien qué valores hacen que una condición sea verdadera o falsa.</p>
+
+        <h4>3. Iteración</h4>
+        <p>La <strong>iteración</strong> consiste en repetir una o varias instrucciones varias veces.</p>
+        <p>Es una idea fundamental porque muchas tareas informáticas requieren repetición: recorrer listas, pedir datos varias veces, repetir cálculos, procesar registros o esperar hasta que ocurra algo.</p>
+
+        <h5>Idea básica</h5>
+        <p>La iteración responde a una pregunta del tipo:</p>
+        <p><strong>Repite estas instrucciones mientras ocurra algo o durante un cierto número de veces.</strong></p>
+
+        <h5>Bucles</h5>
+        <p>La iteración suele implementarse mediante <strong>bucles</strong>. Los dos tipos más habituales en programación básica son:</p>
+        <ul>
+          <li><strong>while</strong></li>
+          <li><strong>for</strong></li>
+        </ul>
+
+        <h5>Bucle while</h5>
+        <p>El bucle <code>while</code> repite un bloque de instrucciones mientras una condición sea verdadera.</p>
+
+        <pre><code>contador = 1
+
+while contador <= 5:
+    print(contador)
+    contador = contador + 1</code></pre>
+
+        <p>Este programa muestra los números del 1 al 5.</p>
+        <p>La condición se comprueba antes de cada repetición. Cuando deja de cumplirse, el bucle termina.</p>
+
+        <h5>Importancia del control en while</h5>
+        <p>Es muy importante que en algún momento la condición deje de ser verdadera. Si no ocurre, el programa entrará en un <strong>bucle infinito</strong>.</p>
+
+        <p>Ejemplo de riesgo:</p>
+        <pre><code>contador = 1
+
+while contador <= 5:
+    print(contador)</code></pre>
+
+        <p>Aquí el valor de <code>contador</code> nunca cambia, por lo que la condición seguirá siendo siempre verdadera.</p>
+
+        <h5>Bucle for</h5>
+        <p>El bucle <code>for</code> se utiliza normalmente para recorrer elementos de una estructura o repetir una acción un número determinado de veces.</p>
+
+        <pre><code>for i in range(5):
+    print(i)</code></pre>
+
+        <p>Este programa muestra una secuencia de valores. En Python, <code>range(5)</code> genera los valores 0, 1, 2, 3 y 4.</p>
+
+        <h5>Recorrido de listas con for</h5>
+        <p>Una aplicación muy común del bucle <code>for</code> es recorrer los elementos de una lista.</p>
+
+        <pre><code>nombres = ["Ana", "Carlos", "Lucía"]
+
+for nombre in nombres:
+    print(nombre)</code></pre>
+
+        <p>Esto permite trabajar con todos los elementos de una estructura sin tener que escribir una instrucción distinta para cada uno.</p>
+
+        <h5>Diferencia general entre while y for</h5>
+        <ul>
+          <li><strong>while</strong> se usa cuando la repetición depende de una condición.</li>
+          <li><strong>for</strong> se usa cuando queremos repetir algo un número conocido de veces o recorrer una colección.</li>
+        </ul>
+
+        <h5>Importancia de la iteración</h5>
+        <p>Sin iteración, muchos programas tendrían que repetir el mismo código una y otra vez. Los bucles hacen que los programas sean más compactos, más claros y más potentes.</p>
+
+        <h4>Secuencia, selección e iteración juntas</h4>
+        <p>En la práctica, los programas reales combinan estos tres constructos continuamente.</p>
+
+        <p>Por ejemplo, supongamos un programa que quiere procesar varias notas:</p>
+        <ul>
+          <li>usa <strong>secuencia</strong> para leer los datos y mostrar resultados</li>
+          <li>usa <strong>iteración</strong> para recorrer todas las notas</li>
+          <li>usa <strong>selección</strong> para decidir si cada nota es aprobada o suspendida</li>
+        </ul>
+
+        <pre><code>notas = [4, 7, 6, 3, 9]
+
+for nota in notas:
+    if nota >= 5:
+        print(nota, "Aprobado")
+    else:
+        print(nota, "Suspenso")</code></pre>
+
+        <p>Este pequeño programa combina las tres ideas fundamentales del control de flujo.</p>
+
+        <h4>Bloques de código e indentación</h4>
+        <p>En muchos lenguajes, especialmente en Python, los constructos de programación organizan las instrucciones en <strong>bloques</strong>.</p>
+        <p>En Python, esos bloques se indican mediante la <strong>indentación</strong>, es decir, dejando un espacio o tabulación al inicio de las líneas que pertenecen al bloque.</p>
+
+        <pre><code>if edad >= 18:
+    print("Mayor de edad")
+    print("Puede registrarse")</code></pre>
+
+        <p>Ambas instrucciones forman parte del mismo bloque asociado al <code>if</code>.</p>
+
+        <h5>Importancia de la indentación</h5>
+        <p>La indentación no es solo una cuestión estética. En Python determina la estructura del programa. Una mala indentación puede cambiar el significado del código o producir errores.</p>
+
+        <h4>Constructos y algoritmos</h4>
+        <p>Los constructos de programación están muy relacionados con el diseño de algoritmos. De hecho, la mayoría de los algoritmos básicos pueden expresarse usando estas tres estructuras:</p>
+        <ul>
+          <li>secuencia</li>
+          <li>selección</li>
+          <li>iteración</li>
+        </ul>
+        <p>Esto significa que un programador debe dominar estos constructos antes de abordar problemas más complejos.</p>
+
+        <h4>Ejemplo integrado</h4>
+        <p>Supongamos que queremos crear un programa que permita introducir varias calificaciones y decir si cada una está aprobada o suspendida.</p>
+
+        <pre><code>cantidad = int(input("¿Cuántas notas quieres introducir? "))
+
+for i in range(cantidad):
+    nota = float(input("Introduce una nota: "))
+
+    if nota >= 5:
+        print("Aprobado")
+    else:
+        print("Suspenso")</code></pre>
+
+        <p>En este ejemplo:</p>
+        <ul>
+          <li>hay <strong>secuencia</strong> porque las instrucciones siguen un orden</li>
+          <li>hay <strong>iteración</strong> porque se repite el proceso varias veces</li>
+          <li>hay <strong>selección</strong> porque se decide qué mensaje mostrar según la nota</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conceptos clave</h3>
+        <ul>
+          <li><strong>Constructo de programación:</strong> estructura que controla cómo se ejecutan las instrucciones de un programa.</li>
+          <li><strong>Estructura de control:</strong> otra forma de referirse a los constructos que organizan el flujo de ejecución.</li>
+          <li><strong>Secuencia:</strong> ejecución ordenada de instrucciones una detrás de otra.</li>
+          <li><strong>Selección:</strong> estructura que permite tomar decisiones según una condición.</li>
+          <li><strong>Condición:</strong> expresión que puede evaluarse como verdadera o falsa.</li>
+          <li><strong>Iteración:</strong> repetición de instrucciones varias veces.</li>
+          <li><strong>Bucle:</strong> estructura que permite repetir un bloque de código.</li>
+          <li><strong>while:</strong> bucle que repite mientras una condición sea verdadera.</li>
+          <li><strong>for:</strong> bucle que recorre una secuencia o repite un número de veces.</li>
+          <li><strong>Indentación:</strong> forma de organizar bloques de código, especialmente importante en Python.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Ejemplo práctico</h3>
+        <p>Supongamos que un profesor quiere recorrer una lista de notas y mostrar si cada estudiante ha aprobado o suspendido.</p>
+
+        <pre><code>notas = [4, 7, 6, 3, 9]
+
+for nota in notas:
+    if nota >= 5:
+        print(nota, "Aprobado")
+    else:
+        print(nota, "Suspenso")</code></pre>
+
+        <p><strong>Qué ocurre en este programa:</strong></p>
+        <ul>
+          <li>se usa una <strong>lista</strong> con varias notas</li>
+          <li>el bucle <strong>for</strong> recorre cada una</li>
+          <li>la estructura <strong>if-else</strong> decide qué mensaje mostrar</li>
+          <li>la salida cambia según el valor de cada nota</li>
+        </ul>
+
+        <p><strong>Qué conceptos aparecen aquí:</strong></p>
+        <ul>
+          <li>secuencia</li>
+          <li>selección</li>
+          <li>iteración</li>
+          <li>condición</li>
+          <li>bucle</li>
+          <li>estructura de control</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Aplicaciones en el mundo real</h3>
+        <ul>
+          <li><strong>Formularios online:</strong> usan selección para validar datos y mostrar mensajes de error o confirmación.</li>
+          <li><strong>Videojuegos:</strong> usan bucles para actualizar continuamente el estado del juego.</li>
+          <li><strong>Apps educativas:</strong> repiten preguntas, corrigen respuestas y muestran resultados según el rendimiento.</li>
+          <li><strong>Sistemas de cajero automático:</strong> toman decisiones según el saldo o el tipo de operación.</li>
+          <li><strong>Robótica:</strong> repiten lecturas de sensores y reaccionan según diferentes condiciones.</li>
+        </ul>
+        <p>Estos sistemas funcionan correctamente porque controlan el flujo del programa mediante secuencia, selección e iteración.</p>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Errores frecuentes de los estudiantes</h3>
+        <ul>
+          <li><strong>No distinguir entre secuencia, selección e iteración:</strong> cada una cumple una función distinta.</li>
+          <li><strong>Plantear mal las condiciones:</strong> si la condición es incorrecta, la decisión del programa también lo será.</li>
+          <li><strong>Crear bucles infinitos:</strong> ocurre cuando la condición de un <code>while</code> nunca deja de cumplirse.</li>
+          <li><strong>Confundir <code>for</code> y <code>while</code>:</strong> ambos repiten, pero no se usan exactamente en las mismas situaciones.</li>
+          <li><strong>Problemas de indentación:</strong> en Python, una indentación incorrecta cambia el bloque de instrucciones o produce errores.</li>
+          <li><strong>No analizar el flujo completo del programa:</strong> algunos estudiantes leen instrucciones aisladas y no entienden cómo interactúan entre sí.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Conexiones con otros temas del curso</h3>
+        <ul>
+          <li><strong>B2.1 Fundamentos de programación:</strong> los constructos amplían la idea básica de programa e instrucciones.</li>
+          <li><strong>B2.2 Estructuras de datos:</strong> los bucles suelen utilizarse para recorrer listas y arrays.</li>
+          <li><strong>B2.4 Algoritmos de programación:</strong> la mayoría de los algoritmos se expresan usando secuencia, selección e iteración.</li>
+          <li><strong>B2.5 Procesamiento de archivos:</strong> al leer archivos se repiten operaciones y se toman decisiones según el contenido.</li>
+          <li><strong>B3 Programación orientada a objetos:</strong> aunque cambie el estilo de programación, los constructos de control siguen siendo esenciales.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Resumen</h3>
+        <ul>
+          <li>Los <strong>constructos de programación</strong> controlan cómo se ejecutan las instrucciones en un programa.</li>
+          <li>La <strong>secuencia</strong> ejecuta instrucciones en orden.</li>
+          <li>La <strong>selección</strong> permite tomar decisiones según condiciones.</li>
+          <li>La <strong>iteración</strong> permite repetir instrucciones.</li>
+          <li>Los condicionales más comunes son <code>if</code>, <code>if-else</code> e <code>if-elif-else</code>.</li>
+          <li>Los bucles más comunes son <code>while</code> y <code>for</code>.</li>
+          <li>Estas estructuras son esenciales para que los programas sean flexibles, dinámicos y útiles.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Preguntas tipo examen</h3>
+        <ol>
+          <li>Define qué son los constructos de programación y explica por qué son importantes.</li>
+          <li>Explica la diferencia entre secuencia, selección e iteración.</li>
+          <li>Describe cómo funciona una estructura condicional y pon un ejemplo.</li>
+          <li>Explica la diferencia entre un bucle <code>while</code> y un bucle <code>for</code>.</li>
+          <li>Analiza por qué un programa puede entrar en un bucle infinito.</li>
+          <li>Explica cómo pueden combinarse selección e iteración en un mismo programa.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Mini test de autoevaluación</h3>
+        <ol>
+          <li>¿Qué es la secuencia?</li>
+          <li>¿Qué permite hacer la selección?</li>
+          <li>¿Qué es una condición?</li>
+          <li>¿Qué hace un bucle?</li>
+          <li>¿Cuál es una idea general del bucle <code>while</code>?</li>
+          <li>¿Cuál es una idea general del bucle <code>for</code>?</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Respuestas del mini test</h3>
+        <ol>
+          <li>Es la ejecución ordenada de instrucciones una detrás de otra.</li>
+          <li>Permite tomar decisiones y ejecutar distintos bloques según una condición.</li>
+          <li>Es una expresión que puede evaluarse como verdadera o falsa.</li>
+          <li>Repite un bloque de instrucciones varias veces.</li>
+          <li>Repite mientras una condición sea verdadera.</li>
+          <li>Recorre una secuencia o repite una acción un número determinado de veces.</li>
+        </ol>
+      </div>
+
+      <div class="card" style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;">
+        <a class="btn btn-secondary" href="b2_2.html" style="color:#102a43;border-color:#9fb5d9;">← B2.2</a>
+        <a class="btn btn-primary" href="b2_4.html">B2.4 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Pablo Durán Guerrero</strong> · Profesor de Informática (IB DP NM)</p>
+      <p>Plataforma educativa independiente. No es un sitio oficial del Bachillerato Internacional (IB) ni está afiliado al IB.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/main.js"></script>
+</body>
+</html>
